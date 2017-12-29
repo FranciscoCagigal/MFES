@@ -1,0 +1,63 @@
+class Show_Test is subclass of MyTestCase
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+operations
+-- TODO Define operations here
+
+			public TestShow :() ==> ()
+			TestShow() ==
+			(
+				-- constructor
+				
+				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);
+				dcl designer1 : Fashion_Designer := new Fashion_Designer("Andre Correia",54);
+				dcl designer2 : Fashion_Designer := new Fashion_Designer("Francisco Louça",64);
+				dcl model1 : Model := new Model("Pedro Faria",67);
+				dcl model2 : Model := new Model("Sara Sampaio",24);
+				dcl model3 : Model := new Model("Daniela Hanganu",26);
+				dcl model4 : Model := new Model("Dariia",23);
+				
+				-- gets
+				assertEqual(show.getTheme(),"Primavera");
+				assertEqual(show.getLocation(),"Porto");
+				assertEqual(show.getDate(),mk_Fashion_Show`Date(2017, 12, 31, 23, 59));
+				assertEqual(show.getModels(),{|->});
+				
+				-- get designers
+				assertEqual(show.getDesigners(),{});
+				show.addDesignerToShow(designer1);
+				assertEqual(show.getDesigners(),{designer1});
+				show.addDesignerToShow(designer2);
+				assertEqual(show.getDesigners(),{designer1,designer2});
+				
+				--get models
+				assertEqual(show.getModelsOfDesigner(designer1),{});
+				assertEqual(show.getModelsOfDesigner(designer2),{});
+				assertEqual(show.getModels(),{designer1|->{},designer2|->{}});
+				show.addModelToShow(designer1,model1);
+				show.addModelToShow(designer1,model2);
+				show.addModelToShow(designer1,model3);
+				show.addModelToShow(designer2,model4);
+				assertEqual(show.getModelsOfDesigner(designer1),{model1,model2,model3});
+				assertEqual(show.getModelsOfDesigner(designer2),{model4});
+				
+				return;
+			);
+			
+			public static main_test: () ==> ()
+			main_test() ==
+			(
+				IO`print("TestShow -> ");
+				new Show_Test().TestShow();
+				IO`println("Passed");
+			);
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Show_Test

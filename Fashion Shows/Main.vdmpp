@@ -1,0 +1,26 @@
+class Main
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+			private static model_test: Model_Test := new Model_Test();
+			private static designer_test : Designer_Test := new Designer_Test();
+			private static show_test : Show_Test := new Show_Test();
+operations
+-- TODO Define operations here
+			
+			public static main: () ==> ()
+			main() ==
+			(
+				model_test.main_test();
+				designer_test.main_test();
+				show_test.main_test();
+			);
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Main

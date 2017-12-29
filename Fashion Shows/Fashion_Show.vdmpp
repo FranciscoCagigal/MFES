@@ -3,10 +3,10 @@ types
 -- TODO Define types here
 			public String = seq of char;
 			public Date :: year : nat month: nat1 day : nat1 hour : nat minute : nat
-				inv mk_Date(y,m,d,h,m) == m <= 12 and d <= DaysOfMonth(y, m) and h < 24 and m < 60;
-			public Fashion_Designers = set of Fashion_Designer;
+				inv mk_Date(y,m,d,h,min) == m <= 12 and d <= DaysOfMonth(m,y) and h < 24 and min < 60;
 			public Models_to_Designers = map Fashion_Designer to set of Model;
 			public listOfModels = set of Model;
+			public listOfDesigners = set of Fashion_Designer;
 values
 -- TODO Define values here
 instance variables
@@ -15,7 +15,6 @@ instance variables
 			private location : String;
 			private date : Date;
 			private theme : String;
-			private designers : Fashion_Designers := {};
 			private models : Models_to_Designers := {|->};
 			
 			
@@ -24,10 +23,10 @@ operations
 
 			--Construtor
 			public Fashion_Show: String * String * nat * nat1 * nat1 * nat * nat ==> Fashion_Show
-			Fashion_Show(location1,theme1,year, month, day, hout, minute) == (
+			Fashion_Show(location1,theme1,year, month, day, hour, minute) == (
 				location := location1;
 				theme := theme1;
-				date := mk_Date(year, month, day, hout, minute);	
+				date := mk_Date(year, month, day, hour, minute);	
 				return self;
 			);
 			
@@ -53,10 +52,10 @@ operations
 			);
 			
 			-- Retorna os designers
-			public pure getDesigners : () ==> Fashion_Designers
+			public pure getDesigners : () ==> listOfDesigners
 			getDesigners() ==
 			(
-				return designers;
+				return dom models;
 			);
 			
 			-- Retorna os modelos por designer
@@ -77,11 +76,8 @@ operations
 			public addDesignerToShow : (Fashion_Designer) ==> ()
 			addDesignerToShow(Fashion_Designer)==
 			(
-				designers := designers union {Fashion_Designer};
 				models := models ++ {Fashion_Designer|->{}};
-			)
-			pre Fashion_Designer not in set designers
-			post designers = designers~ union {Fashion_Designer};
+			);
 
 			-- Adiciona um modelo ao designer
 			public addModelToShow : Fashion_Designer * Model ==> ()
@@ -89,7 +85,6 @@ operations
 			(
 				models(Fashion_Designer) := models(Fashion_Designer) union {Model};
 			)
-			pre Fashion_Designer in set designers;
 
 functions
 -- TODO Define functiones here

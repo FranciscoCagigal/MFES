@@ -1,0 +1,40 @@
+class Model_Test is subclass of MyTestCase
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+operations
+-- TODO Define operations here
+
+			private TestModel :() ==> ()
+			TestModel() ==
+			(
+				-- constructor
+				dcl model : Model := new Model("Pedro Faria",67);
+				
+				-- bad constructor
+				-- dcl model1 : Model := new Model("Filipe Cordeiro",15);
+				
+				-- gets
+				assertEqual(model.getName(),"Pedro Faria");
+				assertEqual(model.getAge(),67);
+				
+				
+				return;
+			);
+			
+			public static main_test: () ==> ()
+			main_test() ==
+			(
+				IO`print("TestModel -> ");
+				new Model_Test().TestModel();
+				IO`println("Passed");
+			);
+			
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Model_Test
