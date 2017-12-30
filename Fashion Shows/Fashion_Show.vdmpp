@@ -77,7 +77,8 @@ operations
 			addDesignerToShow(Fashion_Designer)==
 			(
 				models := models ++ {Fashion_Designer|->{}};
-			);
+			)
+			pre Fashion_Designer not in set dom models;
 
 			-- Adiciona um modelo ao designer
 			public addModelToShow : Fashion_Designer * Model ==> ()

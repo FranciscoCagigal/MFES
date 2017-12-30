@@ -45,6 +45,12 @@ operations
 				assertEqual(show.getModelsOfDesigner(designer1),{model1,model2,model3});
 				assertEqual(show.getModelsOfDesigner(designer2),{model4});
 				
+				--test functions
+				assertEqual(show.DaysOfMonth(1,2000),31);
+				assertEqual(show.DaysOfMonth(4,2000),30);
+				assertEqual(show.DaysOfMonth(2,2000),29);
+				assertEqual(show.DaysOfMonth(2,1900),28);
+				
 				return;
 			);
 			

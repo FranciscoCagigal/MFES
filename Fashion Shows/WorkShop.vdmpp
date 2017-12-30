@@ -1,0 +1,93 @@
+class WorkShop
+types
+-- TODO Define types here
+			public String = seq of char;
+			public Users = set of User;
+			
+
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+	
+			private theme : String;
+			private begin_date : Fashion_Show`Date;
+			private end_date : Fashion_Show`Date;
+			private lotation : nat1;
+			private orator : String;
+			private registered_users : Users;
+			private room : String;
+			
+operations
+-- TODO Define operations here
+
+			public WorkShop: String * Fashion_Show`Date * Fashion_Show`Date * nat1 * String * String ==> WorkShop
+			WorkShop(theme1, begin_date1, end_date1, lotation1, orator1, room1) == (
+				
+				theme := theme1;
+				begin_date := begin_date1;
+				end_date := end_date1;
+				lotation := lotation1;
+				orator := orator1;
+				room := room1;
+				
+				return self;
+			);
+			
+			--gets
+			public pure getTheme : () ==> String
+			getTheme() ==
+			(
+				return theme;
+			); 
+			
+			public pure getBeginDate : () ==> Fashion_Show`Date
+			getBeginDate() ==
+			(
+				return begin_date;
+			);
+			
+			public pure getEndDate : () ==> Fashion_Show`Date
+			getEndDate() ==
+			(
+				return end_date;
+			);
+			
+			public pure getLotation : () ==> nat1
+			getLotation() ==
+			(
+				return lotation;
+			);
+			
+			public pure getOrator : () ==> String
+			getOrator() ==
+			(
+				return orator;
+			);
+			
+			public pure getRoom : () ==> String
+			getRoom() ==
+			(
+				return room;
+			);
+			
+			public pure getUsers : () ==> Users
+			getUsers() ==
+			(
+				return registered_users;
+			);
+			
+			-- add User to workshop
+			public addUserToWorkshop : (User) ==> ()
+			addUserToWorkshop(User) ==
+			(
+				registered_users := registered_users union {User};
+				return;
+			)
+			pre User not in set registered_users;
+			
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end WorkShop
