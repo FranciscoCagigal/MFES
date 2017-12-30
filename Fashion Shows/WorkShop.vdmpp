@@ -34,50 +34,56 @@ operations
 				return self;
 			);
 			
-			--gets
+			--Retorna o tema do workshop
 			public pure getTheme : () ==> String
 			getTheme() ==
 			(
 				return theme;
 			); 
 			
+			--Retorna a data de início
 			public pure getBeginDate : () ==> Fashion_Show`Date
 			getBeginDate() ==
 			(
 				return begin_date;
 			);
 			
+			--Retorna a data de fim
 			public pure getEndDate : () ==> Fashion_Show`Date
 			getEndDate() ==
 			(
 				return end_date;
 			);
 			
+			--Retorna a lotação
 			public pure getLotation : () ==> nat1
 			getLotation() ==
 			(
 				return lotation;
 			);
 			
+			--Retorna o orador
 			public pure getOrator : () ==> String
 			getOrator() ==
 			(
 				return orator;
 			);
 			
+			--Retorna a sala do workshop
 			public pure getRoom : () ==> String
 			getRoom() ==
 			(
 				return room;
 			);
 			
+			--Retorna os utilizadores que participam
 			public pure getUsers : () ==> Users
 			getUsers() ==
 			(
 				return registered_users;
 			);
 			
-			-- add User to workshop
+			--Adiciona um utilizador à workshop
 			public addUserToWorkshop : (User) ==> ()
 			addUserToWorkshop(User) ==
 			(

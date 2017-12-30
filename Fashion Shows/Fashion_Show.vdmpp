@@ -18,7 +18,7 @@ instance variables
 			private date : Date;
 			private theme : String;
 			private models : Models_to_Designers := {|->};
-			private workshops : listOfWorkshops;
+			private workshops : listOfWorkshops := {};
 						
 			
 operations
@@ -73,6 +73,13 @@ operations
 			getModelsOfDesigner(Fashion_Designer) ==
 			(
 				return models(Fashion_Designer);
+			);
+			
+			-- Retorna os workshops do show
+			public pure getWorkShops : () ==> listOfWorkshops
+			getWorkShops() ==
+			(
+				return workshops;
 			);
 			
 			-- Adiciona um designer ao desfile

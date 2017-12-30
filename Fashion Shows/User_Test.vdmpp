@@ -1,0 +1,36 @@
+class User_Test is subclass of MyTestCase
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+operations
+-- TODO Define operations here
+
+			private TestUser :() ==> ()
+			TestUser() ==
+			(
+				-- constructor
+				dcl user : User := new User("Diolinda");
+				
+				-- gets
+				assertEqual(user.getName(),"Diolinda");
+				
+				
+				return;
+			);
+			
+			public static main_test: () ==> ()
+			main_test() ==
+			(
+				IO`print("TestUser -> ");
+				new User_Test().TestUser();
+				IO`println("Passed");
+			);
+			
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end User_Test

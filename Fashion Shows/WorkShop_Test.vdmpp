@@ -1,0 +1,50 @@
+class WorkShop_Test is subclass of MyTestCase
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+operations
+-- TODO Define operations here
+
+			private TestWorkShop :() ==> ()
+			TestWorkShop() ==
+			(
+				-- constructor
+				dcl workshop : WorkShop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 20, "João Botões Correia", "A7");
+				dcl user1 : User := new User("Diolinda");
+				dcl user2: User := new User("Diofeia");
+				
+				-- gets
+				assertEqual(workshop.getTheme(),"Como costurar um botão?");
+				assertEqual(workshop.getBeginDate(),mk_Fashion_Show`Date(2017, 12, 31, 20, 00));
+				assertEqual(workshop.getEndDate(),mk_Fashion_Show`Date(2017, 12, 31, 21, 00));
+				assertEqual(workshop.getLotation(),20);
+				assertEqual(workshop.getOrator(),"João Botões Correia");
+				assertEqual(workshop.getRoom(),"A7");
+				assertEqual(workshop.getUsers(),{});
+				
+				-- Adicionar utilizadores ao workshop
+				workshop.addUserToWorkshop(user1);
+				assertEqual(workshop.getUsers(),{user1});
+				workshop.addUserToWorkshop(user2);
+				assertEqual(workshop.getUsers(),{user1,user2});
+				
+				
+				return;
+			);
+			
+			public static main_test: () ==> ()
+			main_test() ==
+			(
+				IO`print("TestWorkShop -> ");
+				new WorkShop_Test().TestWorkShop();
+				IO`println("Passed");
+			);
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end WorkShop_Test

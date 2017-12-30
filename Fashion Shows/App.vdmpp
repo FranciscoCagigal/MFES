@@ -1,0 +1,61 @@
+class App
+types
+-- TODO Define types here
+
+			public Users = set of User;
+			public Shows = set of Fashion_Show;
+			
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+
+			public users : Users := {};
+			public shows : Shows := {};
+
+operations
+-- TODO Define operations here
+
+			--Construtor
+			public App: () ==> App
+			App() == (
+				return self;
+			);
+			
+			--Retorna os utilizadores da aplicação
+			public pure getUsers : () ==> Users
+			getUsers() ==
+			(
+				return users;
+			);
+			
+			--Retorna os shows da aplicação
+			public pure getShows : () ==> Shows
+			getShows() ==
+			(
+				return shows;
+			);
+			
+			--Adiciona um utilizador à aplicação
+			public addUserToApp : (User) ==> ()
+			addUserToApp(User) ==
+			(
+				users := users union {User};
+				return;
+			)
+			pre User not in set users;
+			
+			--Adiciona um show à aplicação
+			public addShowToApp : (Fashion_Show) ==> ()
+			addShowToApp(Fashion_Show) ==
+			(
+				shows := shows union {Fashion_Show};
+				return;
+			)
+			pre Fashion_Show not in set shows;
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end App

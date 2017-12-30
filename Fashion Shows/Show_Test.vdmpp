@@ -20,6 +20,10 @@ operations
 				dcl model2 : Model := new Model("Sara Sampaio",24);
 				dcl model3 : Model := new Model("Daniela Hanganu",26);
 				dcl model4 : Model := new Model("Dariia",23);
+				dcl workshop : WorkShop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 20, "João Botões Correia", "A7");
+				dcl workshop2 : WorkShop := new WorkShop("Como se maquilhar?", mk_Fashion_Show`Date(2017, 12, 31, 19, 00), mk_Fashion_Show`Date(2017, 12, 31, 20, 00), 20, "João Botões Correia", "A9");
+				dcl user1 : User := new User("Diolinda");
+				dcl user2: User := new User("Diofeia");
 				
 				-- gets
 				assertEqual(show.getTheme(),"Primavera");
@@ -44,6 +48,18 @@ operations
 				show.addModelToShow(designer2,model4);
 				assertEqual(show.getModelsOfDesigner(designer1),{model1,model2,model3});
 				assertEqual(show.getModelsOfDesigner(designer2),{model4});
+				
+				-- workshops
+				assertEqual(show.getWorkShops(),{});
+				show.addWorkShopToShow(workshop);
+				assertEqual(show.getWorkShops(),{workshop});
+				show.addWorkShopToShow(workshop2);
+				assertEqual(show.getWorkShops(),{workshop,workshop2});
+				assertEqual(workshop.getUsers(),{});
+				show.workShopBooking(workshop, user1);
+				assertEqual(workshop.getUsers(),{user1});
+				show.workShopBooking(workshop, user2);
+				assertEqual(workshop.getUsers(),{user1,user2});
 				
 				--test functions
 				assertEqual(show.DaysOfMonth(1,2000),31);
