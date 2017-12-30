@@ -15,7 +15,7 @@ instance variables
 			private end_date : Fashion_Show`Date;
 			private lotation : nat1;
 			private orator : String;
-			private registered_users : Users;
+			private registered_users : Users := {};
 			private room : String;
 			
 operations

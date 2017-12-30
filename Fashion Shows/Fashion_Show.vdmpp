@@ -98,6 +98,14 @@ operations
 				workshops := workshops union {WorkShop};
 			)
 			pre WorkShop not in set workshops;
+			
+			-- Reservar um workshop
+			public workShopBooking : WorkShop * User ==> ()
+			workShopBooking(WorkShop, User) ==
+			(
+				WorkShop.addUserToWorkshop(User);
+			)
+			pre card WorkShop.getUsers() < WorkShop.getLotation();
 
 functions
 -- TODO Define functiones here
