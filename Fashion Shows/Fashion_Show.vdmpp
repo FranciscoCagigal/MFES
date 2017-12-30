@@ -7,6 +7,8 @@ types
 			public Models_to_Designers = map Fashion_Designer to set of Model;
 			public listOfModels = set of Model;
 			public listOfDesigners = set of Fashion_Designer;
+			public listOfWorkshops = set of WorkShop;
+			
 values
 -- TODO Define values here
 instance variables
@@ -16,7 +18,8 @@ instance variables
 			private date : Date;
 			private theme : String;
 			private models : Models_to_Designers := {|->};
-			
+			private workshops : listOfWorkshops;
+						
 			
 operations
 -- TODO Define operations here
@@ -86,6 +89,15 @@ operations
 			(
 				models(Fashion_Designer) := models(Fashion_Designer) union {Model};
 			)
+			pre Model not in set models(Fashion_Designer);
+			
+			-- Adiciona um workshop ao show
+			public addWorkShopToShow : WorkShop ==> ()
+			addWorkShopToShow(WorkShop)==
+			(
+				workshops := workshops union {WorkShop};
+			)
+			pre WorkShop not in set workshops;
 
 functions
 -- TODO Define functiones here
