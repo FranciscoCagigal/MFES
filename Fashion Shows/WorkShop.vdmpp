@@ -17,6 +17,7 @@ instance variables
 			private orator : String;
 			private registered_users : Users := {};
 			private room : String;
+			inv card registered_users <= lotation;
 			
 operations
 -- TODO Define operations here
@@ -90,7 +91,7 @@ operations
 				registered_users := registered_users union {User};
 				return;
 			)
-			pre User not in set registered_users;
+			pre User not in set registered_users and card registered_users < lotation;
 			
 functions
 -- TODO Define functiones here

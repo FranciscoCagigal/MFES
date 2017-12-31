@@ -11,6 +11,7 @@ instance variables
 -- TODO Define instance variables here
 			private name : String;
 			private age : nat1;
+			inv age >= minAge;
 			
 operations
 -- TODO Define operations here
