@@ -91,7 +91,8 @@ operations
 				registered_users := registered_users union {User};
 				return;
 			)
-			pre User not in set registered_users and card registered_users < lotation;
+			pre User not in set registered_users and card registered_users < lotation
+			post User in set registered_users;
 			
 functions
 -- TODO Define functiones here
