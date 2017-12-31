@@ -1,0 +1,59 @@
+class Model_Look
+types
+	public String = seq of char;
+	
+values
+-- TODO Define values here
+
+instance variables
+
+		private model : Model;
+		private fashion_show : Fashion_Show;
+		private date : Fashion_Show`Date;
+		private description : String;
+
+operations
+
+		--Construtor
+		public Model_Look: Model * Fashion_Show * Fashion_Show`Date * String ==> Model_Look
+		Model_Look(model1,fashion_show1,date1,description1) == (
+			model := model1;
+			fashion_show := fashion_show1;
+			date := date1;
+			description := description1;
+			return self;
+		);
+		
+		--Retorna o modelo do look
+		public pure getModel : () ==> Model
+		getModel() ==
+		(
+			return model;
+		);
+
+		--Retorna o Fashion Show
+		public pure getFashionShow : () ==> Fashion_Show
+		getFashionShow() ==
+		(
+			return fashion_show;
+		); 
+
+		--Retorna o momento em que o modelo passou na passerela com este look
+		public pure getDate : () ==> Fashion_Show`Date
+		getDate() ==
+		(
+			return date;
+		);
+		
+		--Retorna a descricao do look
+		public pure getDescription : () ==> String
+		getDescription() ==
+		(
+			return description;
+		);
+			
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Model_Look
