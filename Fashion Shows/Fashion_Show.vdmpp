@@ -19,6 +19,7 @@ instance variables
 			private theme : String;
 			private models : Models_to_Designers := {|->};
 			private workshops : listOfWorkshops := {};
+			private critics : map Reviewer to String := {|->};
 						
 			
 operations
@@ -113,6 +114,15 @@ operations
 				WorkShop.addUserToWorkshop(User);
 			)
 			pre card WorkShop.getUsers() < WorkShop.getLotation();
+			
+			-- Editor adiciona a sua crítica ao show
+			public addCritic : Reviewer * String ==> ()
+			addCritic(Reviewer, String) ==
+			(
+				critics := critics ++ {Reviewer|->String};
+			)
+			pre Reviewer not in set dom critics;
+			
 
 functions
 -- TODO Define functiones here

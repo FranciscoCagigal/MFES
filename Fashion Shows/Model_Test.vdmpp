@@ -15,7 +15,8 @@ operations
 				dcl model : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
 				
 				-- bad constructor
-				-- dcl model1 : Model := new Model("Filipe Cordeiro",15);
+				--dcl model1 : Model := new Model("Filipe Cordeiro",15,<Masculino>,1.5,90.32);
+				
 				
 				-- gets
 				assertEqual(model.getName(),"Pedro Faria");

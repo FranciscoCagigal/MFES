@@ -1,0 +1,51 @@
+class Reviewer
+types
+-- TODO Define types here
+			public String = seq of char;
+			public Gender = <Masculino> | <Feminino>;
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+			private name : String;
+			private age : nat1;
+			private gender : Gender;
+
+operations
+-- TODO Define operations here
+
+			--Construtor
+			public Reviewer: String * nat1 * Gender ==> Reviewer
+			Reviewer(name1,age1,gender1) == (
+				name := name1;
+				age := age1;
+				gender := gender1;
+				return self;
+			);
+			
+			-- Retorna o nome
+			public pure getName : () ==> String
+			getName() ==
+			(
+				return name;
+			);
+			
+			-- Retorna a idade
+			public pure getAge : () ==> nat1
+			getAge() ==
+			(
+				return age;
+			);
+			
+			-- Retorna o genero
+			public pure getGender : () ==> Gender
+			getGender() ==
+			(
+				return gender;
+			);
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Reviewer
