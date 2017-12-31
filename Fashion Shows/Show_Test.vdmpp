@@ -16,10 +16,10 @@ operations
 				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);
 				dcl designer1 : Fashion_Designer := new Fashion_Designer("Andre Correia",54);
 				dcl designer2 : Fashion_Designer := new Fashion_Designer("Francisco Louça",64);
-				dcl model1 : Model := new Model("Pedro Faria",67);
-				dcl model2 : Model := new Model("Sara Sampaio",24);
-				dcl model3 : Model := new Model("Daniela Hanganu",26);
-				dcl model4 : Model := new Model("Dariia",23);
+				dcl model1 : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
+				dcl model2 : Model := new Model("Sara Sampaio",24,<Feminino>,1.82,53.24);
+				dcl model3 : Model := new Model("Daniela Hanganu",26,<Feminino>,1.79,52.78);
+				dcl model4 : Model := new Model("Dariia",23,<Feminino>,1.85,56.91);
 				dcl workshop : WorkShop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 20, "João Botões Correia", "A7");
 				dcl workshop2 : WorkShop := new WorkShop("Como se maquilhar?", mk_Fashion_Show`Date(2017, 12, 31, 19, 00), mk_Fashion_Show`Date(2017, 12, 31, 20, 00), 20, "João Botões Correia", "A9");
 				dcl user1 : User := new User("Diolinda");

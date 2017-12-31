@@ -2,6 +2,7 @@ class Model
 types
 -- TODO Define types here
 			public String = seq of char;
+			public Gender = <Masculino> | <Feminino>;
 			
 values
 -- TODO Define values here
@@ -11,16 +12,22 @@ instance variables
 -- TODO Define instance variables here
 			private name : String;
 			private age : nat1;
+			private gender : Gender;
+			private height : real;
+			private weight : real; 
 			inv age >= minAge;
 			
 operations
 -- TODO Define operations here
 		
 		--Construtor
-			public Model: String * nat1 ==> Model
-			Model(name1,age1) == (
+			public Model: String * nat1 * Gender * real * real ==> Model
+			Model(name1,age1,gender1,height1,weight1) == (
 				name := name1;
 				age := age1;
+				gender := gender1;
+				height := height1;
+				weight := weight1;
 				return self;
 			)
 			pre age1 >= minAge;
@@ -39,6 +46,26 @@ operations
 				return age;
 			);
 			
+			-- Retorna o genero
+			public pure getGender : () ==> Gender
+			getGender() ==
+			(
+				return gender;
+			);
+			
+			-- Retorna a altura
+			public pure getHeight : () ==> real
+			getHeight() ==
+			(
+				return height;
+			);
+			
+			-- Retorna o peso
+			public pure getWeight : () ==> real
+			getWeight() ==
+			(
+				return weight;
+			);
 
 functions
 -- TODO Define functiones here
