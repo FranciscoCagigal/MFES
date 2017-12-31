@@ -20,7 +20,6 @@ instance variables
 			private models : Models_to_Designers := {|->};
 			private workshops : listOfWorkshops := {};
 						
-			
 operations
 -- TODO Define operations here
 
@@ -88,7 +87,8 @@ operations
 			(
 				models := models ++ {Fashion_Designer|->{}};
 			)
-			pre Fashion_Designer not in set dom models;
+			pre Fashion_Designer not in set dom models
+			post Fashion_Designer in set dom models;
 
 			-- Adiciona um modelo ao designer
 			public addModelToShow : Fashion_Designer * Model ==> ()
@@ -96,7 +96,8 @@ operations
 			(
 				models(Fashion_Designer) := models(Fashion_Designer) union {Model};
 			)
-			pre Model not in set models(Fashion_Designer);
+			pre Model not in set models(Fashion_Designer)
+			post Model in set models(Fashion_Designer);
 			
 			-- Adiciona um workshop ao show
 			public addWorkShopToShow : WorkShop ==> ()
@@ -104,7 +105,8 @@ operations
 			(
 				workshops := workshops union {WorkShop};
 			)
-			pre WorkShop not in set workshops;
+			pre WorkShop not in set workshops
+			post WorkShop in set workshops;
 			
 			-- Reservar um workshop
 			public workShopBooking : WorkShop * User ==> ()
