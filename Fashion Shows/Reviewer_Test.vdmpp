@@ -1,0 +1,37 @@
+class Reviewer_Test is subclass of MyTestCase
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+operations
+-- TODO Define operations here
+
+			private TestReviewer :() ==> ()
+			TestReviewer() ==
+			(
+				-- constructor
+				dcl reviewer : Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>);				
+				
+				-- gets
+				assertEqual(reviewer.getName(),"Ana Bacalhau");
+				assertEqual(reviewer.getAge(),39);
+				assertEqual(reviewer.getGender(),<Feminino>);
+				
+				return;
+			);
+			
+			public static main_test: () ==> ()
+			main_test() ==
+			(
+				IO`print("TestReviewer -> ");
+				new Reviewer_Test().TestReviewer();
+				IO`println("Passed");
+			);
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Reviewer_Test

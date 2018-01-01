@@ -24,6 +24,7 @@ operations
 				dcl workshop2 : WorkShop := new WorkShop("Como se maquilhar?", mk_Fashion_Show`Date(2017, 12, 31, 19, 00), mk_Fashion_Show`Date(2017, 12, 31, 20, 00), 20, "João Botões Correia", "A9");
 				dcl user1 : User := new User("Diolinda");
 				dcl user2: User := new User("Diofeia");
+				dcl reviewer: Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>);
 				
 				-- gets
 				assertEqual(show.getTheme(),"Primavera");
@@ -60,6 +61,11 @@ operations
 				assertEqual(workshop.getUsers(),{user1});
 				show.workShopBooking(workshop, user2);
 				assertEqual(workshop.getUsers(),{user1,user2});
+				
+				-- critics
+				assertEqual(show.getCritics(),{|->});
+				show.addCritic(reviewer, "Melhor festival de moda que participei!");
+				assertEqual(show.getCritics(),{reviewer|->"Melhor festival de moda que participei!"});
 				
 				--test functions
 				assertEqual(show.DaysOfMonth(1,2000),31);

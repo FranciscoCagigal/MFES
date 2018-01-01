@@ -10,6 +10,10 @@ instance variables
 			private static show_test : Show_Test := new Show_Test();
 			private static user_test : User_Test := new User_Test();
 			private static workshop_test : WorkShop_Test := new WorkShop_Test();
+			private static app_test : App_Test := new App_Test();
+			private static reviewer_test : Reviewer_Test := new Reviewer_Test();
+			private static model_look_test : Model_Look_Test := new Model_Look_Test();
+			
 operations
 -- TODO Define operations here
 			
@@ -21,6 +25,9 @@ operations
 				show_test.main_test();
 				user_test.main_test();
 				workshop_test.main_test();
+				app_test.main_test();
+				reviewer_test.main_test();
+				model_look_test.main_test();
 			);
 
 functions

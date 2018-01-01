@@ -1,4 +1,4 @@
-class User_Test is subclass of MyTestCase
+class Model_Look_Test is subclass of MyTestCase
 types
 -- TODO Define types here
 values
@@ -8,25 +8,19 @@ instance variables
 operations
 -- TODO Define operations here
 
-			private TestUser :() ==> ()
-			TestUser() ==
+			private TestModelLook :() ==> ()
+			TestModelLook() ==
 			(
 				-- constructor
-				dcl user : User := new User("Diolinda");
 				dcl model : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
 				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);		
 				dcl model_look : Model_Look := new Model_Look(model,show, mk_Fashion_Show`Date(2017, 12, 31, 23, 00),"vestido azul e cor de rosa");
 				
 				-- gets
-				assertEqual(user.getName(),"Diolinda");
-				
-				-- looks
-				assertEqual(user.getFavoriteLooks(),{});
-				user.addLookToFavoriteLooks(model_look);
-				assertEqual(user.getFavoriteLooks(),{model_look});
-				user.removeLookFromFavoriteLooks(model_look);
-				assertEqual(user.getFavoriteLooks(),{});
-				
+				assertEqual(model_look.getModel(),model);
+				assertEqual(model_look.getFashionShow(),show);
+				assertEqual(model_look.getDate(),mk_Fashion_Show`Date(2017, 12, 31, 23, 00));
+				assertEqual(model_look.getDescription(),"vestido azul e cor de rosa");
 				
 				
 				return;
@@ -35,13 +29,13 @@ operations
 			public static main_test: () ==> ()
 			main_test() ==
 			(
-				IO`print("TestUser -> ");
-				new User_Test().TestUser();
+				IO`print("TestModelLook -> ");
+				new Model_Look_Test().TestModelLook();
 				IO`println("Passed");
 			);
-			
+
 functions
 -- TODO Define functiones here
 traces
 -- TODO Define Combinatorial Test Traces here
-end User_Test
+end Model_Look_Test

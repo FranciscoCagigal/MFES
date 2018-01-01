@@ -8,6 +8,7 @@ types
 			public listOfModels = set of Model;
 			public listOfDesigners = set of Fashion_Designer;
 			public listOfWorkshops = set of WorkShop;
+			public listOfCritics = map Reviewer to String;
 			
 values
 -- TODO Define values here
@@ -19,7 +20,7 @@ instance variables
 			private theme : String;
 			private models : Models_to_Designers := {|->};
 			private workshops : listOfWorkshops := {};
-			private critics : map Reviewer to String := {|->};
+			private critics : listOfCritics := {|->};
 						
 operations
 -- TODO Define operations here
@@ -80,6 +81,13 @@ operations
 			getWorkShops() ==
 			(
 				return workshops;
+			);
+			
+			-- Retorna os workshops do show
+			public pure getCritics : () ==> listOfCritics
+			getCritics() ==
+			(
+				return critics;
 			);
 			
 			-- Adiciona um designer ao desfile

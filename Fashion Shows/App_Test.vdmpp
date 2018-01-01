@@ -1,4 +1,4 @@
-class App_Test
+class App_Test is subclass of MyTestCase
 types
 -- TODO Define types here
 values
@@ -7,6 +7,37 @@ instance variables
 -- TODO Define instance variables here
 operations
 -- TODO Define operations here
+
+			private TestApp :() ==> ()
+			TestApp() ==
+			(
+				-- constructor
+				dcl app : App := new App();
+				dcl user : User := new User("Diolinda");
+				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);
+				
+				-- users
+				assertEqual(app.getUsers(),{});
+				app.addUserToApp(user);
+				assertEqual(app.getUsers(),{user});
+				
+				-- shows
+				assertEqual(app.getShows(),{});
+				app.addShowToApp(show);
+				assertEqual(app.getShows(),{show});
+				
+				
+				return;
+			);
+			
+			public static main_test: () ==> ()
+			main_test() ==
+			(
+				IO`print("TestApp -> ");
+				new App_Test().TestApp();
+				IO`println("Passed");
+			);
+
 functions
 -- TODO Define functiones here
 traces
