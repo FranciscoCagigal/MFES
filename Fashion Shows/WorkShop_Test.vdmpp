@@ -30,6 +30,10 @@ operations
 				assertEqual(workshop.getUsers(),{user1});
 				workshop.addUserToWorkshop(user2);
 				assertEqual(workshop.getUsers(),{user1,user2});
+				workshop.rmvUserToWorkshop(user1);
+				assertEqual(workshop.getUsers(),{user2});
+				workshop.rmvUserToWorkshop(user2);
+				assertEqual(workshop.getUsers(),{});
 				
 				
 				return;

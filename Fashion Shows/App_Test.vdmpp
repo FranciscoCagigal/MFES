@@ -20,11 +20,15 @@ operations
 				assertEqual(app.getUsers(),{});
 				app.addUserToApp(user);
 				assertEqual(app.getUsers(),{user});
+				app.rmvUserToApp(user);
+				assertEqual(app.getUsers(),{});
 				
 				-- shows
 				assertEqual(app.getShows(),{});
 				app.addShowToApp(show);
 				assertEqual(app.getShows(),{show});
+				app.rmvShowToApp(show);
+				assertEqual(app.getShows(),{});
 				
 				
 				return;

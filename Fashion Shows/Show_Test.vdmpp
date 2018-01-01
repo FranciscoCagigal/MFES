@@ -38,8 +38,14 @@ operations
 				assertEqual(show.getDesigners(),{designer1});
 				show.addDesignerToShow(designer2);
 				assertEqual(show.getDesigners(),{designer1,designer2});
+				show.rmvDesignerToShow(designer1);
+				assertEqual(show.getDesigners(),{designer2});
+				show.rmvDesignerToShow(designer2);
+				assertEqual(show.getDesigners(),{});
 				
 				--get models
+				show.addDesignerToShow(designer1);
+				show.addDesignerToShow(designer2);
 				assertEqual(show.getModelsOfDesigner(designer1),{});
 				assertEqual(show.getModelsOfDesigner(designer2),{});
 				assertEqual(show.getModels(),{designer1|->{},designer2|->{}});
@@ -61,11 +67,16 @@ operations
 				assertEqual(workshop.getUsers(),{user1});
 				show.workShopBooking(workshop, user2);
 				assertEqual(workshop.getUsers(),{user1,user2});
+				show.rmvWorkShopToShow(workshop);
+				assertEqual(show.getWorkShops(),{workshop2});
+				show.rmvWorkShopToShow(workshop2);
+				assertEqual(show.getWorkShops(),{});
 				
 				-- critics
 				assertEqual(show.getCritics(),{|->});
 				show.addCritic(reviewer, "Melhor festival de moda que participei!");
 				assertEqual(show.getCritics(),{reviewer|->"Melhor festival de moda que participei!"});
+				show.rmvCritic(reviewer);
 				
 				--test functions
 				assertEqual(show.DaysOfMonth(1,2000),31);

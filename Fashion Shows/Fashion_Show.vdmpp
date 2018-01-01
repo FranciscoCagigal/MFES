@@ -74,7 +74,8 @@ operations
 			getModelsOfDesigner(Fashion_Designer) ==
 			(
 				return models(Fashion_Designer);
-			);
+			)
+			pre Fashion_Designer in set dom models;
 			
 			-- Retorna os workshops do show
 			public pure getWorkShops : () ==> listOfWorkshops
@@ -98,6 +99,15 @@ operations
 			)
 			pre Fashion_Designer not in set dom models
 			post Fashion_Designer in set dom models;
+			
+			-- Remove um designer ao desfile
+			public rmvDesignerToShow : (Fashion_Designer) ==> ()
+			rmvDesignerToShow(Fashion_Designer)==
+			(
+				models := {Fashion_Designer} <-: models ;
+			)
+			pre Fashion_Designer in set dom models
+			post Fashion_Designer not in set dom models;
 
 			-- Adiciona um modelo ao designer
 			public addModelToShow : Fashion_Designer * Model ==> ()
@@ -105,7 +115,7 @@ operations
 			(
 				models(Fashion_Designer) := models(Fashion_Designer) union {Model};
 			)
-			pre Model not in set models(Fashion_Designer)
+			pre Model not in set models(Fashion_Designer) and Fashion_Designer in set dom models
 			post Model in set models(Fashion_Designer);
 			
 			-- Adiciona um workshop ao show
@@ -116,6 +126,15 @@ operations
 			)
 			pre WorkShop not in set workshops
 			post WorkShop in set workshops;
+			
+			-- Remove um workshop ao show
+			public rmvWorkShopToShow : WorkShop ==> ()
+			rmvWorkShopToShow(WorkShop)==
+			(
+				workshops := workshops \ {WorkShop};
+			)
+			pre WorkShop in set workshops
+			post WorkShop not in set workshops;
 			
 			-- Reservar um workshop
 			public workShopBooking : WorkShop * User ==> ()
@@ -131,7 +150,17 @@ operations
 			(
 				critics := critics ++ {Reviewer|->String};
 			)
-			pre Reviewer not in set dom critics;
+			pre Reviewer not in set dom critics
+			post Reviewer in set dom critics;
+			
+			-- Editor remove a sua crítica ao show
+			public rmvCritic : Reviewer ==> ()
+			rmvCritic(Reviewer) ==
+			(
+				critics := {Reviewer} <-: critics;
+			)
+			pre Reviewer in set dom critics
+			post Reviewer not in set dom critics;
 			
 
 functions

@@ -94,6 +94,16 @@ operations
 			pre User not in set registered_users and card registered_users < lotation
 			post User in set registered_users;
 			
+			--Remove um utilizador à workshop
+			public rmvUserToWorkshop : (User) ==> ()
+			rmvUserToWorkshop(User) ==
+			(
+				registered_users := registered_users \ {User};
+				return;
+			)
+			pre User in set registered_users
+			post User not in set registered_users;			
+			
 functions
 -- TODO Define functiones here
 traces

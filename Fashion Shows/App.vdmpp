@@ -43,7 +43,18 @@ operations
 				users := users union {User};
 				return;
 			)
-			pre User not in set users;
+			pre User not in set users
+			post User in set users;
+			
+			--Remove um utilizador à aplicação
+			public rmvUserToApp : (User) ==> ()
+			rmvUserToApp(User) ==
+			(
+				users := users \ {User};
+				return;
+			)
+			pre User in set users
+			post User not in set users;
 			
 			--Adiciona um show à aplicação
 			public addShowToApp : (Fashion_Show) ==> ()
@@ -52,7 +63,18 @@ operations
 				shows := shows union {Fashion_Show};
 				return;
 			)
-			pre Fashion_Show not in set shows;
+			pre Fashion_Show not in set shows
+			post Fashion_Show in set shows;
+			
+			--Remove um show à aplicação
+			public rmvShowToApp : (Fashion_Show) ==> ()
+			rmvShowToApp(Fashion_Show) ==
+			(
+				shows := shows \ {Fashion_Show};
+				return;
+			)
+			pre Fashion_Show in set shows
+			post Fashion_Show not in set shows;
 
 functions
 -- TODO Define functiones here
