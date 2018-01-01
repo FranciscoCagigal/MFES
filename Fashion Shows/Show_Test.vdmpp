@@ -16,6 +16,9 @@ operations
 				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);
 				dcl designer1 : Fashion_Designer := new Fashion_Designer("Andre Correia",54);
 				dcl designer2 : Fashion_Designer := new Fashion_Designer("Francisco Louça",64);
+				dcl designer3 : Fashion_Designer := new Fashion_Designer("Afonso Martins",58);
+				dcl designer4 : Fashion_Designer := new Fashion_Designer("Carlos Silva",62);
+				dcl designer5 : Fashion_Designer := new Fashion_Designer("Mario Andrade",59);
 				dcl model1 : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
 				dcl model2 : Model := new Model("Sara Sampaio",24,<Feminino>,1.82,53.24);
 				dcl model3 : Model := new Model("Daniela Hanganu",26,<Feminino>,1.79,52.78);
@@ -25,12 +28,20 @@ operations
 				dcl user1 : User := new User("Diolinda");
 				dcl user2: User := new User("Diofeia");
 				dcl reviewer: Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>);
+				dcl data1 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 10, 30);
+				dcl data2 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 11, 00);
+				dcl data3 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 12, 30);
+				dcl data4 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 14, 00);
+				dcl data5 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 15, 30);
+				dcl data6 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 17, 00);
+				dcl data7 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 18, 30);
 				
 				-- gets
 				assertEqual(show.getTheme(),"Primavera");
 				assertEqual(show.getLocation(),"Porto");
 				assertEqual(show.getDate(),mk_Fashion_Show`Date(2017, 12, 31, 23, 59));
 				assertEqual(show.getModels(),{|->});
+				assertEqual(show.getProgramShow(),{|->});
 				
 				-- get designers
 				assertEqual(show.getDesigners(),{});
@@ -71,6 +82,80 @@ operations
 				assertEqual(show.getWorkShops(),{workshop2});
 				show.rmvWorkShopToShow(workshop2);
 				assertEqual(show.getWorkShops(),{});
+				
+				-- program
+				show.addDesignerToProgramShow(data1,designer1);
+				assertEqual(show.getProgramShow(),{data1|->designer1});
+				assertEqual(card dom show.getProgramShow(),1);
+				show.addDesignerToProgramShow(data2,designer2);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2});
+				assertEqual(card dom show.getProgramShow(),2);
+				show.addDesignerToProgramShow(data3,designer3);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3});
+				assertEqual(card dom show.getProgramShow(),3);
+				show.addDesignerToProgramShow(data4,designer4);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4});
+				assertEqual(card dom show.getProgramShow(),4);
+				
+				--invalid entry
+				--show.addDesignerToProgramShow(data1,designer2);
+				
+				--get designers by date
+				assertEqual(show.getDesignerByDate(data1),designer1);
+				assertEqual(show.getDesignerByDate(data2),designer2);
+				assertEqual(show.getDesignerByDate(data3),designer3);
+				assertEqual(show.getDesignerByDate(data4),designer4);
+				
+				--add same designer to another date
+				show.addDesignerToProgramShow(data5,designer1);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4,data5|->designer1});
+				assertEqual(card dom show.getProgramShow(),5);
+				show.addDesignerToProgramShow(data6,designer2);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4,data5|->designer1,data6|->designer2});
+				assertEqual(card dom show.getProgramShow(),6);
+				show.addDesignerToProgramShow(data7,designer1);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4,data5|->designer1,data6|->designer2,data7|->designer1});
+				assertEqual(card dom show.getProgramShow(),7);
+				
+				
+				--get list of dates by designer
+				assertEqual(show.getListOfDatesByDesigner(designer1),{data1,data5,data7});
+				assertEqual(show.getListOfDatesByDesigner(designer2),{data2,data6});
+				
+				--invalid entry
+				--assertEqual(show.getListOfDatesByDesigner(designer5),{});
+				
+				--remove date from program show
+				show.removeDesignerFromProgramShow(data7);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4,data5|->designer1,data6|->designer2});
+				assertEqual(card dom show.getProgramShow(),6);
+				show.removeDesignerFromProgramShow(data6);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4,data5|->designer1});
+				assertEqual(card dom show.getProgramShow(),5);
+				show.removeDesignerFromProgramShow(data5);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4});
+				assertEqual(card dom show.getProgramShow(),4);
+				
+				--invalid entry
+				--show.removeDesignerFromProgramShow(data5);
+				
+				show.removeDesignerFromProgramShow(data4);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3});
+				assertEqual(card dom show.getProgramShow(),3);
+				
+				--invalid entry
+				--show.removeDesignerFromProgramShow(data4);
+				
+				show.removeDesignerFromProgramShow(data3);
+				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2});
+				assertEqual(card dom show.getProgramShow(),2);
+				
+				show.removeDesignerFromProgramShow(data2);
+				assertEqual(show.getProgramShow(),{data1|->designer1});
+				assertEqual(card dom show.getProgramShow(),1);
+				
+				show.removeDesignerFromProgramShow(data1);
+				assertEqual(show.getProgramShow(),{|->});
 				
 				-- critics
 				assertEqual(show.getCritics(),{|->});
