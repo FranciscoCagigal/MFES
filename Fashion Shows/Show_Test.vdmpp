@@ -97,7 +97,7 @@ operations
 				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4});
 				assertEqual(card dom show.getProgramShow(),4);
 				
-				--invalid entry
+				--invalid entry (try to break pre-condition by adding another event with already existing same date)
 				--show.addDesignerToProgramShow(data1,designer2);
 				
 				--get designers by date
@@ -122,7 +122,7 @@ operations
 				assertEqual(show.getListOfDatesByDesigner(designer1),{data1,data5,data7});
 				assertEqual(show.getListOfDatesByDesigner(designer2),{data2,data6});
 				
-				--invalid entry
+				--invalid entry (try to break pre-condition by retriving list of dates by a designer that not exists on program)
 				--assertEqual(show.getListOfDatesByDesigner(designer5),{});
 				
 				--remove date from program show
@@ -136,14 +136,14 @@ operations
 				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4});
 				assertEqual(card dom show.getProgramShow(),4);
 				
-				--invalid entry
+				--invalid entry (try to break pre-condition by removing a date that not exists on program)
 				--show.removeDesignerFromProgramShow(data5);
 				
 				show.removeDesignerFromProgramShow(data4);
 				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3});
 				assertEqual(card dom show.getProgramShow(),3);
 				
-				--invalid entry
+				--invalid entry (try to break pre-condition by removing a date that not exists on program)
 				--show.removeDesignerFromProgramShow(data4);
 				
 				show.removeDesignerFromProgramShow(data3);
