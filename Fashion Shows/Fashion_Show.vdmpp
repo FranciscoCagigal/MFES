@@ -9,6 +9,8 @@ types
 			public listOfDesigners = set of Fashion_Designer;
 			public listOfWorkshops = set of WorkShop;
 			public listOfCritics = map Reviewer to String;
+			public programShow = map Date to Fashion_Designer;
+			public listOfDates = set of Date;
 			
 values
 -- TODO Define values here
@@ -21,6 +23,7 @@ instance variables
 			private models : Models_to_Designers := {|->};
 			private workshops : listOfWorkshops := {};
 			private critics : listOfCritics := {|->};
+			private program : programShow := {|->};
 						
 operations
 -- TODO Define operations here
@@ -67,6 +70,13 @@ operations
 			getModels() ==
 			(
 				return models;
+			);
+			
+			-- Retorna o programa do evento
+			public pure getProgramShow : () ==> programShow
+			getProgramShow() ==
+			(
+				return program;
 			);
 			
 			-- Retorna os modelos de um dado designer
@@ -117,6 +127,45 @@ operations
 			)
 			pre Model not in set models(Fashion_Designer) and Fashion_Designer in set dom models
 			post Model in set models(Fashion_Designer);
+			
+			-- Adiciona um designer ao programa
+			public addDesignerToProgramShow : Date * Fashion_Designer ==> ()
+			addDesignerToProgramShow(dateShow,designer)==
+			(
+				program := program ++ {dateShow |-> designer};
+			)
+			pre dateShow.year = date.year and dateShow.month = date.month and dateShow.day = date.day and dateShow not in set dom program
+			post dateShow in set dom program;
+			
+			-- Remove um designer do programa
+			public removeDesignerFromProgramShow : Date ==> ()
+			removeDesignerFromProgramShow(dateShow)==
+			(
+				program := {dateShow} <-: program;
+			)
+			pre dateShow in set dom program
+			post dateShow not in set dom program;
+			
+			-- Retorna o designer para uma determinada data do programa
+			public pure getDesignerByDate : (Date) ==> Fashion_Designer
+			getDesignerByDate(dateShow) ==
+			(
+				return program(dateShow);
+			)
+			pre dateShow in set dom program;
+			
+			-- Retorna as datas do programa para um determinado designer
+			public pure getListOfDatesByDesigner : (Fashion_Designer) ==> listOfDates
+			getListOfDatesByDesigner(designer) ==
+			(
+				dcl m : map Date to Fashion_Designer := program :> {designer};
+				dcl l : listOfDates := {};
+				
+				for all d in set dom m do l := l union {d};
+				
+				return l;
+			)
+			pre designer in set rng program;
 			
 			-- Adiciona um workshop ao show
 			public addWorkShopToShow : WorkShop ==> ()
