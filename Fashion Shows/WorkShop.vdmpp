@@ -2,7 +2,7 @@ class WorkShop
 types
 -- TODO Define types here
 			public String = seq of char;
-			public Users = set of User;
+			public Users = set of Regular_User;
 			
 
 values
@@ -85,24 +85,24 @@ operations
 			);
 			
 			--Adiciona um utilizador à workshop
-			public addUserToWorkshop : (User) ==> ()
-			addUserToWorkshop(User) ==
+			public addUserToWorkshop : (Regular_User) ==> ()
+			addUserToWorkshop(Regular_User) ==
 			(
-				registered_users := registered_users union {User};
+				registered_users := registered_users union {Regular_User};
 				return;
 			)
-			pre User not in set registered_users and card registered_users < lotation
-			post User in set registered_users;
+			pre Regular_User not in set registered_users and card registered_users < lotation
+			post Regular_User in set registered_users;
 			
 			--Remove um utilizador à workshop
-			public rmvUserToWorkshop : (User) ==> ()
-			rmvUserToWorkshop(User) ==
+			public rmvUserToWorkshop : (Regular_User) ==> ()
+			rmvUserToWorkshop(Regular_User) ==
 			(
-				registered_users := registered_users \ {User};
+				registered_users := registered_users \ {Regular_User};
 				return;
 			)
-			pre User in set registered_users
-			post User not in set registered_users;			
+			pre Regular_User in set registered_users
+			post Regular_User not in set registered_users;			
 			
 functions
 -- TODO Define functiones here

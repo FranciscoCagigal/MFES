@@ -1,4 +1,4 @@
-class Reviewer
+class Reviewer is subclass of User
 types
 -- TODO Define types here
 			public String = seq of char;
@@ -7,7 +7,6 @@ values
 -- TODO Define values here
 instance variables
 -- TODO Define instance variables here
-			private name : String;
 			private age : nat1;
 			private gender : Gender;
 
@@ -21,13 +20,6 @@ operations
 				age := age1;
 				gender := gender1;
 				return self;
-			);
-			
-			-- Retorna o nome
-			public pure getName : () ==> String
-			getName() ==
-			(
-				return name;
 			);
 			
 			-- Retorna a idade

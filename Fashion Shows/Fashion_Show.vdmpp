@@ -188,7 +188,7 @@ operations
 			post WorkShop not in set workshops;
 			
 			-- Reservar um workshop
-			public workShopBooking : WorkShop * User ==> ()
+			public workShopBooking : WorkShop * Regular_User ==> ()
 			workShopBooking(WorkShop, User) ==
 			(
 				WorkShop.addUserToWorkshop(User);

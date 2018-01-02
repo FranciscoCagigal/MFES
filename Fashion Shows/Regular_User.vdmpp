@@ -1,0 +1,60 @@
+class Regular_User is subclass of User
+types
+-- TODO Define types here
+		public String = seq of char;
+		public Looks = set of Model_Look;
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+		private favorite_looks : Looks := {};
+		private premium_user : bool := false;
+			
+operations
+-- TODO Define operations here
+
+		--Construtor
+		public Regular_User: String * bool ==> Regular_User
+		Regular_User(name1, premium_user1) == (
+			name := name1;
+			premium_user := premium_user1;
+			return self;
+		);
+		
+		--Retorna se é um user premium ou nao
+		public pure getPremium : () ==> bool
+		getPremium() ==
+		(
+			return premium_user;
+		); 
+		
+		--Retorna os looks favoritos
+		public pure getFavoriteLooks : () ==> Looks
+		getFavoriteLooks() ==
+		(
+			return favorite_looks;
+		); 
+		
+		-- Adiciona um look aos looks favoritos
+		public addLookToFavoriteLooks : Model_Look ==> ()
+		addLookToFavoriteLooks(look)==
+		(
+			favorite_looks := favorite_looks union {look};
+		)
+		pre look not in set favorite_looks
+		post look in set favorite_looks;
+		
+		-- Remove um look dos looks favoritos
+		public removeLookFromFavoriteLooks : Model_Look ==> ()
+		removeLookFromFavoriteLooks(look)==
+		(
+			favorite_looks := favorite_looks \ {look};
+		)
+		pre look in set favorite_looks
+		post look not in set favorite_looks;
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Regular_User

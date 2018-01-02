@@ -8,7 +8,7 @@ instance variables
 			private static model_test: Model_Test := new Model_Test();
 			private static designer_test : Designer_Test := new Designer_Test();
 			private static show_test : Show_Test := new Show_Test();
-			private static user_test : User_Test := new User_Test();
+			private static user_test : Regular_User_Test := new Regular_User_Test();
 			private static workshop_test : WorkShop_Test := new WorkShop_Test();
 			private static app_test : App_Test := new App_Test();
 			private static reviewer_test : Reviewer_Test := new Reviewer_Test();

@@ -1,55 +1,23 @@
 class User
 types
 -- TODO Define types here
-		public String = seq of char;
-		public Looks = set of Model_Look;
+			public String = seq of char;
+			
 values
 -- TODO Define values here
 instance variables
 -- TODO Define instance variables here
-		private name : String;
-		private favorite_looks : Looks := {};
-			
+			protected name : String :="Default_Name";
+
 operations
 -- TODO Define operations here
 
-		--Construtor
-		public User: String ==> User
-		User(name1) == (
-			name := name1;
-			return self;
-		);
-		
-		--gets
-		public pure getName : () ==> String
-		getName() ==
-		(
-			return name;
-		); 
-		
-		public pure getFavoriteLooks : () ==> Looks
-		getFavoriteLooks() ==
-		(
-			return favorite_looks;
-		); 
-		
-		-- Adiciona um look aos looks favoritos
-		public addLookToFavoriteLooks : Model_Look ==> ()
-		addLookToFavoriteLooks(look)==
-		(
-			favorite_looks := favorite_looks union {look};
-		)
-		pre look not in set favorite_looks
-		post look in set favorite_looks;
-		
-		-- Remove um look dos looks favoritos
-		public removeLookFromFavoriteLooks : Model_Look ==> ()
-		removeLookFromFavoriteLooks(look)==
-		(
-			favorite_looks := favorite_looks \ {look};
-		)
-		pre look in set favorite_looks
-		post look not in set favorite_looks;
+			--Retorna o nome
+			public pure getName : () ==> String
+			getName() ==
+			(
+				return name;
+			); 
 
 functions
 -- TODO Define functiones here

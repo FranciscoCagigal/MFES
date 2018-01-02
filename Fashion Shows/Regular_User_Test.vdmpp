@@ -1,4 +1,4 @@
-class User_Test is subclass of MyTestCase
+class Regular_User_Test is subclass of MyTestCase
 types
 -- TODO Define types here
 values
@@ -12,13 +12,17 @@ operations
 			TestUser() ==
 			(
 				-- constructor
-				dcl user : User := new User("Diolinda");
+				dcl user : Regular_User := new Regular_User("Diolinda",true);
+				dcl user2 : Regular_User := new Regular_User("Diofeia",false);
 				dcl model : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
 				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);		
 				dcl model_look : Model_Look := new Model_Look(model,show, mk_Fashion_Show`Date(2017, 12, 31, 23, 00),"vestido azul e cor de rosa");
 				
 				-- gets
 				assertEqual(user.getName(),"Diolinda");
+				assertEqual(user2.getName(),"Diofeia");
+				assertEqual(user.getPremium(),true);
+				assertEqual(user2.getPremium(),false);
 				
 				-- looks
 				assertEqual(user.getFavoriteLooks(),{});
@@ -36,7 +40,7 @@ operations
 			main_test() ==
 			(
 				IO`print("TestUser -> ");
-				new User_Test().TestUser();
+				new Regular_User_Test().TestUser();
 				IO`println("Passed");
 			);
 			
@@ -44,4 +48,4 @@ functions
 -- TODO Define functiones here
 traces
 -- TODO Define Combinatorial Test Traces here
-end User_Test
+end Regular_User_Test

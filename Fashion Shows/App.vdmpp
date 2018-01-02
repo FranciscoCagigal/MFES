@@ -2,7 +2,7 @@ class App
 types
 -- TODO Define types here
 
-			public Users = set of User;
+			public Users = set of Regular_User;
 			public Shows = set of Fashion_Show;
 			
 values
@@ -37,7 +37,7 @@ operations
 			);
 			
 			--Adiciona um utilizador à aplicação
-			public addUserToApp : (User) ==> ()
+			public addUserToApp : (Regular_User) ==> ()
 			addUserToApp(User) ==
 			(
 				users := users union {User};
@@ -47,7 +47,7 @@ operations
 			post User in set users;
 			
 			--Remove um utilizador à aplicação
-			public rmvUserToApp : (User) ==> ()
+			public rmvUserToApp : (Regular_User) ==> ()
 			rmvUserToApp(User) ==
 			(
 				users := users \ {User};
