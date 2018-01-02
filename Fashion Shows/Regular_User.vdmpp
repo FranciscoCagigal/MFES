@@ -14,9 +14,12 @@ operations
 -- TODO Define operations here
 
 		--Construtor
-		public Regular_User: String * bool ==> Regular_User
-		Regular_User(name1, premium_user1) == (
+		public Regular_User: String * Gender * String * String * bool ==> Regular_User
+		Regular_User(name1, gender1, email1, password1, premium_user1) == (
 			name := name1;
+			gender := gender1;
+			email := email1;
+			password := password1;
 			premium_user := premium_user1;
 			return self;
 		);

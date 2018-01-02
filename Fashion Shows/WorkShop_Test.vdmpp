@@ -13,8 +13,8 @@ operations
 			(
 				-- constructor
 				dcl workshop : WorkShop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 20, "João Botões Correia", "A7");
-				dcl user1 : Regular_User := new Regular_User("Diolinda",true);
-				dcl user2: Regular_User := new Regular_User("Diofeia",false);
+				dcl user1 : Regular_User := new Regular_User("Diolinda",<Feminino>, "diolinda@gmail.com", "password_diolinda",true);
+				dcl user2: Regular_User := new Regular_User("Diofeia",<Feminino>, "diofeia@gmail.com", "password_diofeia",false);
 				
 				-- gets
 				assertEqual(workshop.getTheme(),"Como costurar um botão?");
@@ -34,7 +34,6 @@ operations
 				assertEqual(workshop.getUsers(),{user2});
 				workshop.rmvUserToWorkshop(user2);
 				assertEqual(workshop.getUsers(),{});
-				
 				
 				return;
 			);

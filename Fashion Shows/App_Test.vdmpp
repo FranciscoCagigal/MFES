@@ -13,7 +13,7 @@ operations
 			(
 				-- constructor
 				dcl app : App := new App();
-				dcl user : Regular_User := new Regular_User("Diolinda",false);
+				dcl user : Regular_User := new Regular_User("Diolinda",<Feminino>,"diolinda@gmail.com","password_diolinda",false);
 				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);
 				
 				-- users

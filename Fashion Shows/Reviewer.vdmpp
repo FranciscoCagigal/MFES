@@ -8,17 +8,18 @@ values
 instance variables
 -- TODO Define instance variables here
 			private age : nat1;
-			private gender : Gender;
 
 operations
 -- TODO Define operations here
 
 			--Construtor
-			public Reviewer: String * nat1 * Gender ==> Reviewer
-			Reviewer(name1,age1,gender1) == (
+			public Reviewer: String * nat1 * Gender * String * String ==> Reviewer
+			Reviewer(name1,age1,gender1,email1,password1) == (
 				name := name1;
 				age := age1;
 				gender := gender1;
+				email := email1;
+				password := password1;
 				return self;
 			);
 			
@@ -27,13 +28,6 @@ operations
 			getAge() ==
 			(
 				return age;
-			);
-			
-			-- Retorna o genero
-			public pure getGender : () ==> Gender
-			getGender() ==
-			(
-				return gender;
 			);
 
 functions

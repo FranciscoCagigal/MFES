@@ -12,12 +12,14 @@ operations
 			TestReviewer() ==
 			(
 				-- constructor
-				dcl reviewer : Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>);				
+				dcl reviewer : Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>,"anabacalhau@gmail.com","password_anabacalhau");				
 				
 				-- gets
 				assertEqual(reviewer.getName(),"Ana Bacalhau");
 				assertEqual(reviewer.getAge(),39);
 				assertEqual(reviewer.getGender(),<Feminino>);
+				assertEqual(reviewer.getEmail(),"anabacalhau@gmail.com");
+				assertEqual(reviewer.getPassword(),"password_anabacalhau");
 				
 				return;
 			);
