@@ -18,7 +18,7 @@ operations
 				dcl designer2 : Fashion_Designer := new Fashion_Designer("Francisco Louça",64);
 				dcl designer3 : Fashion_Designer := new Fashion_Designer("Afonso Martins",58);
 				dcl designer4 : Fashion_Designer := new Fashion_Designer("Carlos Silva",62);
-				dcl designer5 : Fashion_Designer := new Fashion_Designer("Mario Andrade",59);
+				--dcl designer5 : Fashion_Designer := new Fashion_Designer("Mario Andrade",59);
 				dcl model1 : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
 				dcl model2 : Model := new Model("Sara Sampaio",24,<Feminino>,1.82,53.24);
 				dcl model3 : Model := new Model("Daniela Hanganu",26,<Feminino>,1.79,52.78);
@@ -28,6 +28,7 @@ operations
 				dcl user1 : User := new User("Diolinda");
 				dcl user2: User := new User("Diofeia");
 				dcl reviewer: Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>);
+				dcl reviewer2: Reviewer := new Reviewer("Ana Moura",45,<Feminino>);
 				dcl data1 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 10, 30);
 				dcl data2 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 11, 00);
 				dcl data3 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 12, 30);
@@ -35,6 +36,8 @@ operations
 				dcl data5 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 15, 30);
 				dcl data6 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 17, 00);
 				dcl data7 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 18, 30);
+				dcl critic : Fashion_Show`Critic := mk_Fashion_Show`Critic("Melhor festival de moda que participei!",5);
+				dcl critic2 : Fashion_Show`Critic := mk_Fashion_Show`Critic("Evento aquém das expectativas.",2);
 				
 				-- gets
 				assertEqual(show.getTheme(),"Primavera");
@@ -159,9 +162,19 @@ operations
 				
 				-- critics
 				assertEqual(show.getCritics(),{|->});
-				show.addCritic(reviewer, "Melhor festival de moda que participei!");
-				assertEqual(show.getCritics(),{reviewer|->"Melhor festival de moda que participei!"});
+				assertEqual(show.getAvgReview(),0);
+				show.addCritic(reviewer, critic);
+				assertEqual(show.getCritics(),{reviewer|->critic});
+				assertEqual(show.getAvgReview(),5);
+				show.addCritic(reviewer2, critic2);
+				assertEqual(show.getCritics(),{reviewer|->critic,reviewer2|->critic2});
+				assertEqual(show.getAvgReview(),3.5);
 				show.rmvCritic(reviewer);
+				assertEqual(show.getCritics(),{reviewer2|->critic2});
+				assertEqual(show.getAvgReview(),2);
+				show.rmvCritic(reviewer2);
+				assertEqual(show.getCritics(),{|->});
+				assertEqual(show.getAvgReview(),0);
 				
 				--test functions
 				assertEqual(show.DaysOfMonth(1,2000),31);

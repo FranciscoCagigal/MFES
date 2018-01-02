@@ -8,9 +8,11 @@ types
 			public listOfModels = set of Model;
 			public listOfDesigners = set of Fashion_Designer;
 			public listOfWorkshops = set of WorkShop;
-			public listOfCritics = map Reviewer to String;
+			public listOfCritics = map Reviewer to Critic;
 			public programShow = map Date to Fashion_Designer;
 			public listOfDates = set of Date;
+			public Critic :: description : String rate: nat
+				inv v == v.rate <= 5;
 			
 values
 -- TODO Define values here
@@ -194,10 +196,10 @@ operations
 			pre card WorkShop.getUsers() < WorkShop.getLotation();
 			
 			-- Editor adiciona a sua crítica ao show
-			public addCritic : Reviewer * String ==> ()
-			addCritic(Reviewer, String) ==
+			public addCritic : Reviewer * Critic ==> ()
+			addCritic(Reviewer, Critic) ==
 			(
-				critics := critics ++ {Reviewer|->String};
+				critics := critics ++ {Reviewer|->Critic};
 			)
 			pre Reviewer not in set dom critics
 			post Reviewer in set dom critics;
@@ -211,6 +213,19 @@ operations
 			pre Reviewer in set dom critics
 			post Reviewer not in set dom critics;
 			
+			-- Média crítica ao show
+			public getAvgReview : () ==> (real)
+			getAvgReview() ==
+			(
+				dcl sum : real :=0;
+				
+				for all reviewer in set dom critics do
+					sum := sum + critics(reviewer).rate;
+				if (card dom critics > 0) then
+					return sum / card dom critics
+				else 
+					return sum;
+			);
 
 functions
 -- TODO Define functiones here
