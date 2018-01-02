@@ -127,7 +127,9 @@ operations
 			(
 				models(Fashion_Designer) := models(Fashion_Designer)^[Model];
 			)
-			pre Model not in set elems models(Fashion_Designer) and Fashion_Designer in set dom models
+			pre Model not in set elems models(Fashion_Designer) and Fashion_Designer in set dom models and Fashion_Designer in set rng program and
+				len models(Fashion_Designer) = 0 => checkModelDesignerDates(Fashion_Designer, Model) and 
+				len models(Fashion_Designer) <> 0 => checkModelsDates(Fashion_Designer, Model)
 			post Model in set elems models(Fashion_Designer);
 			
 			-- Remove um modelo do designer
@@ -240,6 +242,32 @@ operations
 					return sum / card dom critics
 				else 
 					return sum;
+			);
+			
+			-- Verifica se data do modelo é compativel com a do designer a que está associado
+			public pure checkModelDesignerDates : Fashion_Designer * Model_In_Runway ==> (bool)
+			checkModelDesignerDates(designer,modelRw) ==
+			(
+				dcl l : listOfDates := getListOfDatesByDesigner(designer);
+				for all i in set l do
+					if (i.year = modelRw.getDate().year and i.month = modelRw.getDate().month and i.day = modelRw.getDate().day and modelRw.getDate().hour >= i.hour and modelRw.getDate().minute >= i.minute) then
+						return true
+					else
+						return false
+			);
+			
+			-- Verifica se data do modelo é posterior à data do último modelo na sequencia
+			public pure checkModelsDates : Fashion_Designer * Model_In_Runway ==> (bool)
+			checkModelsDates(designer,modelRw) ==
+			(
+				dcl l : listOfModels := models(designer);
+				dcl m : Model_In_Runway := l(len l);
+				
+				if(modelRw.getDate().hour > m.getDate().hour or (modelRw.getDate().hour = m.getDate().hour and modelRw.getDate().minute > m.getDate().minute)) then
+					return true
+				else
+					return false
+				
 			);
 
 functions
