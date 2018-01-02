@@ -212,7 +212,7 @@ operations
 			)
 			pre card WorkShop.getUsers() < WorkShop.getLotation();
 			
-			-- Editor adiciona a sua cr�tica ao show
+			-- Editor adiciona a sua critica ao show
 			public addCritic : Reviewer * Critic ==> ()
 			addCritic(Reviewer, Critic) ==
 			(
@@ -221,7 +221,7 @@ operations
 			pre Reviewer not in set dom critics
 			post Reviewer in set dom critics;
 			
-			-- Editor remove a sua cr�tica ao show
+			-- Editor remove a sua critica ao show
 			public rmvCritic : Reviewer ==> ()
 			rmvCritic(Reviewer) ==
 			(
@@ -230,7 +230,7 @@ operations
 			pre Reviewer in set dom critics
 			post Reviewer not in set dom critics;
 			
-			-- M�dia cr�tica ao show
+			-- Media critica ao show
 			public getAvgReview : () ==> (real)
 			getAvgReview() ==
 			(
@@ -244,7 +244,7 @@ operations
 					return sum;
 			);
 			
-			-- Verifica se data do modelo � compativel com a do designer a que est� associado
+			-- Verifica se data do modelo e compativel com a do designer a que esta associado
 			public pure checkModelDesignerDates : Fashion_Designer * Model_In_Runway ==> (bool)
 			checkModelDesignerDates(designer,modelRw) ==
 			(
@@ -256,7 +256,7 @@ operations
 						return false
 			);
 			
-			-- Verifica se data do modelo � posterior � data do �ltimo modelo na sequencia
+			-- Verifica se data do modelo e posterior a data do ultimo modelo na sequencia
 			public pure checkModelsDates : Fashion_Designer * Model_In_Runway ==> (bool)
 			checkModelsDates(designer,modelRw) ==
 			(
@@ -272,7 +272,7 @@ operations
 functions
 -- TODO Define functiones here
 			
-			-- Retorna o n�mero de dias do m�s num dado ano
+			-- Retorna o numero de dias do mes num dado ano
 			public static DaysOfMonth(month,year : nat1) r : nat1 == (
 				if month = 1 or month = 3 or month = 5 or month = 7 or month = 8 or month = 10 or month = 12 then
 					31
