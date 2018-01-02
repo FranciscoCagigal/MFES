@@ -153,7 +153,8 @@ operations
 			(
 				program := program ++ {dateShow |-> designer};
 			)
-			pre dateShow.year = date.year and dateShow.month = date.month and dateShow.day = date.day and dateShow.hour >= date.hour and dateShow.minute >= date.minute and dateShow not in set dom program
+			pre dateShow.year = date.year and dateShow.month = date.month and dateShow.day = date.day and dateShow.hour >= date.hour and dateShow.minute >= date.minute 
+			and dateShow not in set dom program and checkProgramDisponibility(dateShow)
 			post dateShow in set dom program;
 			
 			-- Remove um designer do programa
@@ -268,6 +269,22 @@ operations
 				else
 					return false
 			);
+			
+			-- Verifica disponibilidade do programa para a inscricao do designer
+			-- Verifica se ja ha designers incritos nos slots adjacentes (+/- 30 min)
+			public pure checkProgramDisponibility : Date ==> (bool)
+			checkProgramDisponibility(desiredDate) ==
+			(
+				dcl l : listOfDates := dom program;
+				dcl minutesDesrired : nat := HoursToMinutes(desiredDate.hour,desiredDate.minute);
+				
+				for all d in set l do
+					if(d.year = desiredDate.year and d.month = desiredDate.month and d.day = desiredDate.day) then
+						if((HoursToMinutes(d.hour,d.minute) < minutesDesrired and HoursToMinutes(d.hour,d.minute) > minutesDesrired-30) or (HoursToMinutes(d.hour,d.minute) > minutesDesrired and HoursToMinutes(d.hour,d.minute) < minutesDesrired+30) ) then
+							return false;
+				
+				return true;
+			);
 
 functions
 -- TODO Define functiones here
@@ -282,7 +299,12 @@ functions
 					28
 				else
 					30
-			)
+			);
+			
+			-- Converte horas para minutos
+			public static HoursToMinutes(hour : nat1, minutes : nat) r : nat == (
+				hour * 60 + minutes
+			);
 
 traces
 -- TODO Define Combinatorial Test Traces here
