@@ -2,7 +2,6 @@ class Reviewer is subclass of User
 types
 -- TODO Define types here
 			public String = seq of char;
-			public Gender = <Masculino> | <Feminino>;
 values
 -- TODO Define values here
 instance variables
