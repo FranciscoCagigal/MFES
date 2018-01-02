@@ -251,9 +251,9 @@ operations
 				dcl l : listOfDates := getListOfDatesByDesigner(designer);
 				for all i in set l do
 					if (i.year = modelRw.getDate().year and i.month = modelRw.getDate().month and i.day = modelRw.getDate().day and modelRw.getDate().hour = i.hour and modelRw.getDate().minute = i.minute) then
-						return true
-					else
-						return false
+						return true;
+				
+				return false
 			);
 			
 			-- Verifica se data do modelo e posterior a data do ultimo modelo na sequencia
