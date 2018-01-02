@@ -129,7 +129,8 @@ operations
 			)
 			pre Model not in set elems models(Fashion_Designer) and Fashion_Designer in set dom models and Fashion_Designer in set rng program and 
 			(len models(Fashion_Designer) = 0 => checkModelDesignerDates(Fashion_Designer, Model)) and 
-			(len models(Fashion_Designer) <> 0 => checkModelsDates(Fashion_Designer, Model))
+			(len models(Fashion_Designer) <> 0 => checkModelsDates(Fashion_Designer, Model)) and
+			len models(Fashion_Designer) < 30
 			post Model in set elems models(Fashion_Designer);
 			
 			-- Remove um modelo do designer
@@ -302,7 +303,7 @@ functions
 			);
 			
 			-- Converte horas para minutos
-			public static HoursToMinutes(hour : nat1, minutes : nat) r : nat == (
+			public static HoursToMinutes(hour : nat, minutes : nat) r : nat == (
 				hour * 60 + minutes
 			);
 
