@@ -13,7 +13,7 @@ operations
 			(
 				-- constructor
 				
-				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);
+				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 9, 00);
 				dcl designer1 : Fashion_Designer := new Fashion_Designer("Andre Correia",54);
 				dcl designer2 : Fashion_Designer := new Fashion_Designer("Francisco Louça",64);
 				dcl designer3 : Fashion_Designer := new Fashion_Designer("Afonso Martins",58);
@@ -23,6 +23,10 @@ operations
 				dcl model2 : Model := new Model("Sara Sampaio",24,<Feminino>,1.82,53.24);
 				dcl model3 : Model := new Model("Daniela Hanganu",26,<Feminino>,1.79,52.78);
 				dcl model4 : Model := new Model("Dariia",23,<Feminino>,1.85,56.91);
+				dcl model1_rw : Model_In_Runway := new Model_In_Runway(model1, mk_Fashion_Show`Date(2017, 12, 31, 20, 00));
+				dcl model2_rw : Model_In_Runway := new Model_In_Runway(model2, mk_Fashion_Show`Date(2017, 12, 31, 20, 00));
+				dcl model3_rw : Model_In_Runway := new Model_In_Runway(model3, mk_Fashion_Show`Date(2017, 12, 31, 20, 00));
+				dcl model4_rw : Model_In_Runway := new Model_In_Runway(model4, mk_Fashion_Show`Date(2017, 12, 31, 20, 00));
 				dcl workshop : WorkShop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 20, "João Botões Correia", "A7");
 				dcl workshop2 : WorkShop := new WorkShop("Como se maquilhar?", mk_Fashion_Show`Date(2017, 12, 31, 19, 00), mk_Fashion_Show`Date(2017, 12, 31, 20, 00), 20, "João Botões Correia", "A9");
 				dcl user1 : Regular_User := new Regular_User("Diolinda",<Feminino>, "diolinda@gmail.com", "password_diolinda",true);
@@ -42,7 +46,7 @@ operations
 				-- gets
 				assertEqual(show.getTheme(),"Primavera");
 				assertEqual(show.getLocation(),"Porto");
-				assertEqual(show.getDate(),mk_Fashion_Show`Date(2017, 12, 31, 23, 59));
+				assertEqual(show.getDate(),mk_Fashion_Show`Date(2017, 12, 31, 9, 00));
 				assertEqual(show.getModels(),{|->});
 				assertEqual(show.getProgramShow(),{|->});
 				
@@ -60,15 +64,15 @@ operations
 				--get models
 				show.addDesignerToShow(designer1);
 				show.addDesignerToShow(designer2);
-				assertEqual(show.getModelsOfDesigner(designer1),{});
-				assertEqual(show.getModelsOfDesigner(designer2),{});
-				assertEqual(show.getModels(),{designer1|->{},designer2|->{}});
-				show.addModelToShow(designer1,model1);
-				show.addModelToShow(designer1,model2);
-				show.addModelToShow(designer1,model3);
-				show.addModelToShow(designer2,model4);
-				assertEqual(show.getModelsOfDesigner(designer1),{model1,model2,model3});
-				assertEqual(show.getModelsOfDesigner(designer2),{model4});
+				assertEqual(show.getModelsOfDesigner(designer1),[]);
+				assertEqual(show.getModelsOfDesigner(designer2),[]);
+				assertEqual(show.getModels(),{designer1|->[],designer2|->[]});
+				show.addModelToShow(designer1,model1_rw);
+				show.addModelToShow(designer1,model2_rw);
+				show.addModelToShow(designer1,model3_rw);
+				show.addModelToShow(designer2,model4_rw);
+				assertEqual(show.getModelsOfDesigner(designer1),[model1_rw,model2_rw,model3_rw]);
+				assertEqual(show.getModelsOfDesigner(designer2),[model4_rw]);
 				
 				-- workshops
 				assertEqual(show.getWorkShops(),{});

@@ -4,8 +4,8 @@ types
 			public String = seq of char;
 			public Date :: year : nat month: nat1 day : nat1 hour : nat minute : nat
 				inv mk_Date(y,m,d,h,min) == m <= 12 and d <= DaysOfMonth(m,y) and h < 24 and min < 60;
-			public Models_to_Designers = map Fashion_Designer to set of Model;
-			public listOfModels = set of Model;
+			public Models_to_Designers = map Fashion_Designer to seq of Model_In_Runway;
+			public listOfModels = seq of Model_In_Runway;
 			public listOfDesigners = set of Fashion_Designer;
 			public listOfWorkshops = set of WorkShop;
 			public listOfCritics = map Reviewer to Critic;
@@ -107,7 +107,7 @@ operations
 			public addDesignerToShow : (Fashion_Designer) ==> ()
 			addDesignerToShow(Fashion_Designer)==
 			(
-				models := models ++ {Fashion_Designer|->{}};
+				models := models ++ {Fashion_Designer|->[]};
 			)
 			pre Fashion_Designer not in set dom models
 			post Fashion_Designer in set dom models;
@@ -122,13 +122,28 @@ operations
 			post Fashion_Designer not in set dom models;
 
 			-- Adiciona um modelo ao designer
-			public addModelToShow : Fashion_Designer * Model ==> ()
+			public addModelToShow : Fashion_Designer * Model_In_Runway ==> ()
 			addModelToShow(Fashion_Designer, Model)==
 			(
-				models(Fashion_Designer) := models(Fashion_Designer) union {Model};
+				models(Fashion_Designer) := models(Fashion_Designer)^[Model];
 			)
-			pre Model not in set models(Fashion_Designer) and Fashion_Designer in set dom models
-			post Model in set models(Fashion_Designer);
+			pre Model not in set elems models(Fashion_Designer) and Fashion_Designer in set dom models
+			post Model in set elems models(Fashion_Designer);
+			
+			-- Remove um modelo do designer
+			public removeModelToShow : Fashion_Designer * Model_In_Runway ==> ()
+			removeModelToShow(Fashion_Designer, Model)==
+			(
+				dcl seqAux : listOfModels := [];
+				
+				for all i in set inds models(Fashion_Designer) do 
+				if models(Fashion_Designer)(i) <> Model
+				then seqAux := seqAux^[models(Fashion_Designer)(i)];
+				
+				models(Fashion_Designer) := seqAux;
+			)
+			pre Model in set elems models(Fashion_Designer) and Fashion_Designer in set dom models
+			post Model not in set elems models(Fashion_Designer);
 			
 			-- Adiciona um designer ao programa
 			public addDesignerToProgramShow : Date * Fashion_Designer ==> ()
@@ -136,7 +151,7 @@ operations
 			(
 				program := program ++ {dateShow |-> designer};
 			)
-			pre dateShow.year = date.year and dateShow.month = date.month and dateShow.day = date.day and dateShow not in set dom program
+			pre dateShow.year = date.year and dateShow.month = date.month and dateShow.day = date.day and dateShow.hour >= date.hour and dateShow.minute >= date.minute and dateShow not in set dom program
 			post dateShow in set dom program;
 			
 			-- Remove um designer do programa

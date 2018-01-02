@@ -1,0 +1,76 @@
+class Model_In_Runway
+types
+		public Image = seq of char;
+		
+values
+-- TODO Define values here
+
+instance variables
+		private model : Model;
+		private photo : [Image];
+		private date : Fashion_Show`Date;
+		
+operations
+
+		--Construtor
+		public Model_In_Runway: Model * Fashion_Show`Date ==> Model_In_Runway
+		Model_In_Runway(model1,date1) == (
+			model := model1;
+			date := date1;
+			return self;
+		);
+	
+		-- Retorna o modelo
+		public pure getModel : () ==> Model
+		getModel() ==
+		(
+			return model;
+		);
+		
+		-- Retorna a fotografia
+		public pure getPhoto : () ==> Image
+		getPhoto() ==
+		(
+			return photo;
+		)
+		pre photo <> nil;
+		
+		-- Retorna a data
+		public pure getDate : () ==> Fashion_Show`Date
+		getDate() ==
+		(
+			return date;
+		);
+		
+		-- Define a data
+		public setDate : (Fashion_Show`Date) ==> ()
+		setDate(date1) ==
+		(
+			date := date1;
+		)
+		post date = date1;
+		
+		-- Guarda fotografia
+		public setPhoto : (Image) ==> ()
+		setPhoto(photo1) ==
+		(
+			photo := photo1;
+		)
+		post photo = photo1;
+		
+		-- Remove fotografia
+		public removePhoto : () ==> ()
+		removePhoto() ==
+		(
+			photo := nil;
+		)
+		pre photo <> nil
+		post photo = nil;
+		
+functions
+-- TODO Define functiones here
+
+traces
+-- TODO Define Combinatorial Test Traces here
+
+end Model_In_Runway
