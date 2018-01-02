@@ -73,6 +73,8 @@ operations
 				show.addModelToShow(designer2,model4_rw);
 				assertEqual(show.getModelsOfDesigner(designer1),[model1_rw,model2_rw,model3_rw]);
 				assertEqual(show.getModelsOfDesigner(designer2),[model4_rw]);
+				show.removeModelToShow(designer1,model2_rw);
+				assertEqual(show.getModelsOfDesigner(designer1),[model1_rw,model3_rw]);
 				
 				-- workshops
 				assertEqual(show.getWorkShops(),{});

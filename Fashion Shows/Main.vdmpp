@@ -13,6 +13,7 @@ instance variables
 			private static app_test : App_Test := new App_Test();
 			private static reviewer_test : Reviewer_Test := new Reviewer_Test();
 			private static model_look_test : Model_Look_Test := new Model_Look_Test();
+			private static model_in_runway_test : Model_In_Runway_Test := new Model_In_Runway_Test();
 			
 operations
 -- TODO Define operations here
@@ -28,6 +29,7 @@ operations
 				app_test.main_test();
 				reviewer_test.main_test();
 				model_look_test.main_test();
+				model_in_runway_test.main_test();
 			);
 
 functions

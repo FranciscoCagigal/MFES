@@ -1,0 +1,47 @@
+class Model_In_Runway_Test is subclass of MyTestCase
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+instance variables
+-- TODO Define instance variables here
+operations
+-- TODO Define operations here
+
+			public TestModelInRunaway :() ==> ()
+			TestModelInRunaway() ==
+			(
+				-- constructor
+				dcl model1 : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
+				dcl model1_rw : Model_In_Runway := new Model_In_Runway(model1, mk_Fashion_Show`Date(2017, 12, 31, 20, 00));
+				
+				
+				-- gets
+				assertEqual(model1_rw.getModel(),model1);
+				assertEqual(model1_rw.getDate(),mk_Fashion_Show`Date(2017, 12, 31, 20, 00));
+				model1_rw.setPhoto("picture.png");
+				assertEqual(model1_rw.getPhoto(),"picture.png");
+				model1_rw.removePhoto();
+				
+				-- não pode devolver foto se não existir - pre-condição
+				-- assertEqual(model1_rw.getPhoto(),nil);
+				
+				model1_rw.setDate(mk_Fashion_Show`Date(2017, 11,10, 15, 00));
+				assertEqual(model1_rw.getDate(),mk_Fashion_Show`Date(2017, 11,10, 15, 00));
+				
+				return;
+			);
+			
+			public static main_test: () ==> ()
+			main_test() ==
+			(
+				IO`print("TestModelInRunaway -> ");
+				new Model_In_Runway_Test().TestModelInRunaway();
+				IO`println("Passed");
+			);
+
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Model_In_Runway_Test

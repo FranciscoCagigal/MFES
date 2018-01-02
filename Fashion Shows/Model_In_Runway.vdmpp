@@ -7,7 +7,7 @@ values
 
 instance variables
 		private model : Model;
-		private photo : [Image];
+		private photo : [Image] := nil;
 		private date : Fashion_Show`Date;
 		
 operations

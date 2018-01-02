@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.2)  2 JAN 2018 12:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.12.29)  2 JAN 2018 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"Fashion Shows.tex"
+**"./Fashion Shows.tex"
 (./Fashion Shows.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
+Babel <3.15> and hyphenation patterns for 84 language(s) loaded.
+(c:/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size10.clo
+(c:/texlive/2017/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -23,13 +23,13 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/preprint/fullpage.sty
+(c:/texlive/2017/texmf-dist/tex/latex/preprint/fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip43
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/vdmlisting/vdmlisting.sty
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+(c:/texlive/2017/texmf-dist/tex/latex/vdmlisting/vdmlisting.sty
+(c:/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
+(c:/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
@@ -46,53 +46,45 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \lst@lineno=\count92
 \lst@maxwidth=\dimen106
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
+(c:/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count93
 \lst@skipnumbers=\count94
 \lst@framebox=\box27
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
+(c:/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/times.sty
+(c:/texlive/2017/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/color.sty
+(c:/texlive/2017/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(c:/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
-
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count95
+(c:/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/12/07 v1.0i Graphics/color driver for pdftex
 )))
 Package: vdmlisting 2015/06/04 1.6 (Kenneth Lausdahl)
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
+(c:/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(c:/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+(c:/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
@@ -128,25 +120,25 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-(/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(c:/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
+(c:/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(c:/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen107
-\Hy@linkcounter=\count96
-\Hy@pagecounter=\count97
+\Hy@linkcounter=\count95
+\Hy@pagecounter=\count96
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
+(c:/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count98
+\Hy@SavedSpaceFactor=\count97
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+(c:/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Hyper figures OFF on input line 4498.
@@ -156,15 +148,15 @@ Package hyperref Info: Plain pages OFF on input line 4513.
 Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
-\c@Hy@tempcnt=\count99
+\c@Hy@tempcnt=\count98
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
+(c:/texlive/2017/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen108
-\Fld@menulength=\count100
+\Fld@menulength=\count99
 \Field@Width=\dimen109
 \Fld@charsize=\dimen110
 Package hyperref Info: Hyper figures OFF on input line 6358.
@@ -176,44 +168,46 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count101
-\c@Item=\count102
-\c@Hfootnote=\count103
+\Hy@abspage=\count100
+\c@Item=\count101
+\c@Hfootnote=\count102
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
+(c:/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count104
-\c@bookmark@seq@number=\count105
+\Fld@listcount=\count103
+\c@bookmark@seq@number=\count104
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+(c:/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip44
 )
-(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/longtable.sty
+(c:/texlive/2017/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip45
 \LTright=\skip46
 \LTpre=\skip47
 \LTpost=\skip48
-\LTchunksize=\count106
+\LTchunksize=\count105
 \LTcapwidth=\dimen111
 \LT@head=\box28
 \LT@firsthead=\box29
 \LT@foot=\box30
 \LT@lastfoot=\box31
-\LT@cols=\count107
-\LT@rows=\count108
-\c@LT@tables=\count109
-\c@LT@chunks=\count110
+\LT@cols=\count106
+\LT@rows=\count107
+\c@LT@tables=\count108
+\c@LT@chunks=\count109
 \LT@p@ftn=\toks16
-)
-(./Fashion Shows.aux
+) (./Fashion Shows.aux
+
+LaTeX Warning: Label `TestDesigner:11' multiply defined.
+
 
 LaTeX Warning: Label `main:test:25' multiply defined.
 
@@ -235,34 +229,34 @@ LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 6.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+ (c:/texlive/2017/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-\c@lstlisting=\count111
+\c@lstlisting=\count110
 
-(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
+\scratchcounter=\count111
 \scratchdimen=\dimen112
 \scratchbox=\box32
-\nofMPsegments=\count113
-\nofMParguments=\count114
+\nofMPsegments=\count112
+\nofMParguments=\count113
 \everyMPshowfont=\toks17
-\MPscratchCnt=\count115
+\MPscratchCnt=\count114
 \MPscratchDim=\dimen113
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
 \everyMPtoPDFconversion=\toks18
 )
 \AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring OFF on input line 6.
- (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
+ (c:/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+(c:/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count118
+\c@section@level=\count117
 )
 LaTeX Info: Redefining \ref on input line 6.
 LaTeX Info: Redefining \pageref on input line 6.
@@ -288,14 +282,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 \openout4 = `"Fashion Shows.toc"'.
 
 
-(./specification/App.vdmpp.tex
+(./specification/App.vdmpp.tex [1
+
+{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 1.
-
-(/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+ (c:/texlive/2017/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [1
-
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+)
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
@@ -310,7 +303,8 @@ Missing character: There is no ã in font pcrro7t!
 Missing character: There is no à in font pcrro7t!
 Missing character: There is no ç in font pcrro7t!
 Missing character: There is no ã in font pcrro7t!
- [2]
+
+[2]
 Missing character: There is no à in font pcrro7t!
 Missing character: There is no ç in font pcrro7t!
 Missing character: There is no ã in font pcrro7t!
@@ -340,19 +334,32 @@ Missing character: There is no é in font pcrro7t!
 Missing character: There is no í in font pcrro7t!
 Missing character: There is no ú in font pcrro7t!
 Missing character: There is no ê in font pcrro7t!
-
-Underfull \vbox (badness 10000) detected at line 365
+ [10]
+Underfull \vbox (badness 10000) detected at line 383
  []
 
-[10]) (./specification/Main.vdmpp.tex [11]
-Underfull \vbox (badness 10000) detected at line 54
+) (./specification/Main.vdmpp.tex [11]
+Underfull \vbox (badness 10000) detected at line 56
  []
 
-) (./specification/Model.vdmpp.tex [12]
+) (./specification/Model.vdmpp.tex [12] [13]
 Underfull \vbox (badness 10000) detected at line 116
  []
 
-) (./specification/Model_Look.vdmpp.tex [13] [14]
+) (./specification/Model_In_Runway.vdmpp.tex [14]
+Underfull \vbox (badness 10000) detected at line 123
+ []
+
+) (./specification/Model_In_Runway_Test.vdmpp.tex [15]
+Missing character: There is no ã in font pcrro7t!
+Missing character: There is no ã in font pcrro7t!
+Missing character: There is no ç in font pcrro7t!
+Missing character: There is no ã in font pcrro7t!
+
+Underfull \vbox (badness 10000) detected at line 74
+ []
+
+) (./specification/Model_Look.vdmpp.tex [16] [17]
 Underfull \vbox (badness 10000) detected at line 96
  []
 
@@ -360,33 +367,41 @@ Underfull \vbox (badness 10000) detected at line 96
 Underfull \vbox (badness 10000) detected at line 63
  []
 
-[15]) (./specification/Model_Test.vdmpp.tex
+[18]) (./specification/Model_Test.vdmpp.tex
 Underfull \vbox (badness 10000) detected at line 62
  []
 
-) (./specification/MyTestCase.vdmpp.tex [16]
+) (./specification/MyTestCase.vdmpp.tex [19]
+LaTeX Font Info:    Try loading font information for OMS+pcr on input line 34.
+
+(c:/texlive/2017/texmf-dist/tex/latex/psnfss/omspcr.fd
+File: omspcr.fd 
+)
+LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
+
 Underfull \vbox (badness 10000) detected at line 53
  []
 
-) (./specification/Regular_User.vdmpp.tex [17]
+) (./specification/Regular_User.vdmpp.tex [20]
 Missing character: There is no é in font pcrro7t!
 
 Underfull \vbox (badness 10000) detected at line 100
  []
 
-[18]) (./specification/Regular_User_Test.vdmpp.tex [19]
+[21]) (./specification/Regular_User_Test.vdmpp.tex [22]
 Underfull \vbox (badness 10000) detected at line 77
  []
 
-) (./specification/Reviewer.vdmpp.tex [20]
-Underfull \vbox (badness 10000) detected at line 63
+) (./specification/Reviewer.vdmpp.tex
+Underfull \vbox (badness 10000) detected at line 58
  []
 
-) (./specification/Reviewer_Test.vdmpp.tex
+[23]) (./specification/Reviewer_Test.vdmpp.tex
 Underfull \vbox (badness 10000) detected at line 61
  []
 
-[21]) (./specification/Show_Test.vdmpp.tex
+) (./specification/Show_Test.vdmpp.tex [24]
 Missing character: There is no ç in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
@@ -394,70 +409,70 @@ Missing character: There is no õ in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no õ in font pcrr7t!
 Missing character: There is no é in font pcrr7t!
- [22] [23] [24]
-Underfull \vbox (badness 10000) detected at line 222
+ [25] [26] [27]
+Underfull \vbox (badness 10000) detected at line 228
  []
 
-) (./specification/User.vdmpp.tex [25]
+) (./specification/User.vdmpp.tex [28]
 Underfull \vbox (badness 10000) detected at line 81
  []
 
-) (./specification/WorkShop.vdmpp.tex [26]
+) (./specification/WorkShop.vdmpp.tex [29]
 Missing character: There is no í in font pcrro7t!
 Missing character: There is no ç in font pcrro7t!
 Missing character: There is no ã in font pcrro7t!
- [27]
+ [30]
 Missing character: There is no à in font pcrro7t!
 Missing character: There is no à in font pcrro7t!
 
 Underfull \vbox (badness 10000) detected at line 173
  []
 
-[28]) (./specification/WorkShop_Test.vdmpp.tex
+[31]) (./specification/WorkShop_Test.vdmpp.tex
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no õ in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no õ in font pcrr7t!
- [29]
+ [32]
 Underfull \vbox (badness 10000) detected at line 75
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 51.
- [30]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
+ [33]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
  (./Fashion Shows.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 51.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 55.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 55.
 Package rerunfilecheck Info: File `"Fashion Shows".out' has not changed.
-(rerunfilecheck)             Checksum: 6F1F364690C063BC9B29893675746C19;917.
+(rerunfilecheck)             Checksum: 4332C6E2BE5DB79ABF0631CEAC3AFCD0;1041.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 55.
  ) 
 Here is how much of TeX's memory you used:
- 8338 strings out of 492995
- 124247 string characters out of 6132705
- 490019 words of memory out of 5000000
- 10269 multiletter control sequences out of 15000+600000
+ 8456 strings out of 492985
+ 125670 string characters out of 6136283
+ 509742 words of memory out of 5000000
+ 10229 multiletter control sequences out of 15000+600000
  17044 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,6n,48p,282b,1936s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2017/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/te
-xlive/2017/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2017/texm
-f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fon
-ts/type1/urw/times/utmr8a.pfb>
-Output written on "Fashion Shows.pdf" (30 pages, 185521 bytes).
+ 33i,6n,48p,283b,1936s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fon
+ts/type1/public/amsfonts/latxfont/lcircle1.pfb><c:/texlive/2017/texmf-dist/font
+s/type1/urw/courier/ucrb8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/cour
+ier/ucrr8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
+<c:/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2017/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on "Fashion Shows.pdf" (33 pages, 205980 bytes).
 PDF statistics:
- 2139 PDF objects out of 2487 (max. 8388607)
- 2080 compressed objects within 21 object streams
- 1521 named destinations out of 1728 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2370 PDF objects out of 2487 (max. 8388607)
+ 2304 compressed objects within 24 object streams
+ 1686 named destinations out of 1728 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
