@@ -127,9 +127,9 @@ operations
 			(
 				models(Fashion_Designer) := models(Fashion_Designer)^[Model];
 			)
-			pre Model not in set elems models(Fashion_Designer) and Fashion_Designer in set dom models and Fashion_Designer in set rng program and
-				len models(Fashion_Designer) = 0 => checkModelDesignerDates(Fashion_Designer, Model) and 
-				len models(Fashion_Designer) <> 0 => checkModelsDates(Fashion_Designer, Model)
+			pre Model not in set elems models(Fashion_Designer) and Fashion_Designer in set dom models and Fashion_Designer in set rng program and 
+			(len models(Fashion_Designer) = 0 => checkModelDesignerDates(Fashion_Designer, Model)) and 
+			(len models(Fashion_Designer) <> 0 => checkModelsDates(Fashion_Designer, Model))
 			post Model in set elems models(Fashion_Designer);
 			
 			-- Remove um modelo do designer
