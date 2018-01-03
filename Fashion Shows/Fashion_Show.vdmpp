@@ -5,7 +5,8 @@ types
 			public Date :: year : nat month: nat1 day : nat1 hour : nat minute : nat
 				inv mk_Date(y,m,d,h,min) == m <= 12 and d <= DaysOfMonth(m,y) and h < 24 and min < 60;
 			public Models_to_Designers = map Fashion_Designer to seq of Model_In_Runway;
-			public listOfModels = seq of Model_In_Runway;
+			public listOfModels = seq of Model;
+			public listOfModelsInRunway = seq of Model_In_Runway;
 			public listOfDesigners = set of Fashion_Designer;
 			public listOfWorkshops = set of WorkShop;
 			public listOfCritics = map Reviewer to Critic;
@@ -85,6 +86,19 @@ operations
 			public pure getModelsOfDesigner : (Fashion_Designer) ==> listOfModels
 			getModelsOfDesigner(Fashion_Designer) ==
 			(
+				dcl l : listOfModels := [];
+				
+				for all m in set elems models(Fashion_Designer) do
+					l := l^[m.getModel()];
+				
+				return l;
+			)
+			pre Fashion_Designer in set dom models;
+			
+			-- Retorna os modelos de um dado designer
+			public pure getModelsInRunwayOfDesigner : (Fashion_Designer) ==> listOfModelsInRunway
+			getModelsInRunwayOfDesigner(Fashion_Designer) ==
+			(
 				return models(Fashion_Designer);
 			)
 			pre Fashion_Designer in set dom models;
@@ -122,31 +136,41 @@ operations
 			post Fashion_Designer not in set dom models;
 
 			-- Adiciona um modelo ao designer
-			public addModelToShow : Fashion_Designer * Model_In_Runway ==> ()
+			public addModelToShow : Fashion_Designer * Model ==> ()
 			addModelToShow(Fashion_Designer, Model)==
 			(
-				models(Fashion_Designer) := models(Fashion_Designer)^[Model];
+				dcl im : map Fashion_Designer to Date := inverse program;
+				dcl d : Date := im(Fashion_Designer);
+				dcl newdate : Date;
+				dcl mrw : Model_In_Runway;
+				
+				if (len models(Fashion_Designer) = 0) then 
+					mrw := new Model_In_Runway(Model, d)
+				else
+					(d := models(Fashion_Designer)(len models(Fashion_Designer)).getDate();
+					newdate := mk_Date(d.year,d.month,d.day,d.hour,d.minute+1);
+					mrw := new Model_In_Runway(Model, newdate););
+					
+				models(Fashion_Designer) := models(Fashion_Designer)^[mrw]
 			)
-			pre Model not in set elems models(Fashion_Designer) and Fashion_Designer in set dom models and Fashion_Designer in set rng program and 
-			(len models(Fashion_Designer) = 0 => checkModelDesignerDates(Fashion_Designer, Model)) and 
-			(len models(Fashion_Designer) <> 0 => checkModelsDates(Fashion_Designer, Model)) and
+			pre Model not in set elems getModelsOfDesigner(Fashion_Designer) and Fashion_Designer in set dom models and Fashion_Designer in set rng program and 
 			len models(Fashion_Designer) < 30
-			post Model in set elems models(Fashion_Designer);
+			post Model in set elems getModelsOfDesigner(Fashion_Designer);
 			
 			-- Remove um modelo do designer
-			public removeModelToShow : Fashion_Designer * Model_In_Runway ==> ()
+			public removeModelToShow : Fashion_Designer * Model ==> ()
 			removeModelToShow(Fashion_Designer, Model)==
 			(
-				dcl seqAux : listOfModels := [];
+				dcl seqAux : listOfModelsInRunway := [];
 				
 				for all i in set inds models(Fashion_Designer) do 
-				if models(Fashion_Designer)(i) <> Model
+				if models(Fashion_Designer)(i).getModel() <> Model
 				then seqAux := seqAux^[models(Fashion_Designer)(i)];
 				
 				models(Fashion_Designer) := seqAux;
 			)
-			pre Model in set elems models(Fashion_Designer) and Fashion_Designer in set dom models
-			post Model not in set elems models(Fashion_Designer);
+			pre Model in set elems getModelsOfDesigner(Fashion_Designer) and Fashion_Designer in set dom models
+			post Model not in set elems getModelsOfDesigner(Fashion_Designer);
 			
 			-- Adiciona um designer ao programa
 			public addDesignerToProgramShow : Date * Fashion_Designer ==> ()
@@ -180,9 +204,7 @@ operations
 			getListOfDatesByDesigner(designer) ==
 			(
 				dcl m : map Date to Fashion_Designer := program :> {designer};
-				dcl l : listOfDates := {};
-				
-				for all d in set dom m do l := l union {d};
+				dcl l : listOfDates := dom m;
 				
 				return l;
 			)
@@ -244,31 +266,6 @@ operations
 					return sum / card dom critics
 				else 
 					return sum;
-			);
-			
-			-- Verifica se data do modelo e compativel com a do designer a que esta associado
-			public pure checkModelDesignerDates : Fashion_Designer * Model_In_Runway ==> (bool)
-			checkModelDesignerDates(designer,modelRw) ==
-			(
-				dcl l : listOfDates := getListOfDatesByDesigner(designer);
-				for all i in set l do
-					if (i.year = modelRw.getDate().year and i.month = modelRw.getDate().month and i.day = modelRw.getDate().day and modelRw.getDate().hour = i.hour and modelRw.getDate().minute = i.minute) then
-						return true;
-				
-				return false
-			);
-			
-			-- Verifica se data do modelo e posterior a data do ultimo modelo na sequencia
-			public pure checkModelsDates : Fashion_Designer * Model_In_Runway ==> (bool)
-			checkModelsDates(designer,modelRw) ==
-			(
-				dcl l : listOfModels := models(designer);
-				dcl m : Model_In_Runway := l(len l);
-				
-				if(modelRw.getDate().hour > m.getDate().hour or (modelRw.getDate().hour = m.getDate().hour and modelRw.getDate().minute > m.getDate().minute)) then
-					return true
-				else
-					return false
 			);
 			
 			-- Verifica disponibilidade do programa para a inscricao do designer

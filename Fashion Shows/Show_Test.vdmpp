@@ -23,10 +23,6 @@ operations
 				dcl model2 : Model := new Model("Sara Sampaio",24,<Feminino>,1.82,53.24);
 				dcl model3 : Model := new Model("Daniela Hanganu",26,<Feminino>,1.79,52.78);
 				dcl model4 : Model := new Model("Dariia",23,<Feminino>,1.85,56.91);
-				dcl model1_rw : Model_In_Runway := new Model_In_Runway(model1, mk_Fashion_Show`Date(2017, 12, 31, 10, 30));
-				dcl model2_rw : Model_In_Runway := new Model_In_Runway(model2, mk_Fashion_Show`Date(2017, 12, 31, 11, 00));
-				dcl model3_rw : Model_In_Runway := new Model_In_Runway(model3, mk_Fashion_Show`Date(2017, 12, 31, 12, 30));
-				dcl model4_rw : Model_In_Runway := new Model_In_Runway(model4, mk_Fashion_Show`Date(2017, 12, 31, 11, 00));
 				dcl workshop : WorkShop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 20, "João Botões Correia", "A7");
 				dcl workshop2 : WorkShop := new WorkShop("Como se maquilhar?", mk_Fashion_Show`Date(2017, 12, 31, 19, 00), mk_Fashion_Show`Date(2017, 12, 31, 20, 00), 20, "João Botões Correia", "A9");
 				dcl user1 : Regular_User := new Regular_User("Diolinda",<Feminino>, "diolinda@gmail.com", "password_diolinda",true);
@@ -75,14 +71,14 @@ operations
 				assertEqual(show.getModelsOfDesigner(designer1),[]);
 				assertEqual(show.getModelsOfDesigner(designer2),[]);
 				assertEqual(show.getModels(),{designer1|->[],designer2|->[]});
-				show.addModelToShow(designer1,model1_rw);
-				show.addModelToShow(designer1,model2_rw);
-				show.addModelToShow(designer1,model3_rw);
-				show.addModelToShow(designer2,model4_rw);
-				assertEqual(show.getModelsOfDesigner(designer1),[model1_rw,model2_rw,model3_rw]);
-				assertEqual(show.getModelsOfDesigner(designer2),[model4_rw]);
-				show.removeModelToShow(designer1,model2_rw);
-				assertEqual(show.getModelsOfDesigner(designer1),[model1_rw,model3_rw]);
+				show.addModelToShow(designer1,model1);
+				show.addModelToShow(designer1,model2);
+				show.addModelToShow(designer1,model3);
+				show.addModelToShow(designer2,model4);
+				assertEqual(show.getModelsOfDesigner(designer1),[model1,model2,model3]);
+				assertEqual(show.getModelsOfDesigner(designer2),[model4]);
+				show.removeModelToShow(designer1,model2);
+				assertEqual(show.getModelsOfDesigner(designer1),[model1,model3]);
 				
 				-- remove designers of program
 				show.removeDesignerFromProgramShow(data2);
