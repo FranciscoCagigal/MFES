@@ -148,7 +148,10 @@ operations
 					mrw := new Model_In_Runway(Model, d)
 				else
 					(d := models(Fashion_Designer)(len models(Fashion_Designer)).getDate();
-					newdate := mk_Date(d.year,d.month,d.day,d.hour,d.minute+1);
+					if(d.minute = 59) then
+						newdate := mk_Date(d.year,d.month,d.day,d.hour+1,0)
+					else
+						newdate := mk_Date(d.year,d.month,d.day,d.hour,d.minute+1);
 					mrw := new Model_In_Runway(Model, newdate););
 					
 				models(Fashion_Designer) := models(Fashion_Designer)^[mrw]
