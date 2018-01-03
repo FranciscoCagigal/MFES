@@ -58,7 +58,21 @@ operations
 				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 11, 19),mk_Fashion_Show`Date(2017, 12, 31, 11, 20)),true);
 				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 11, 20),mk_Fashion_Show`Date(2017, 12, 31, 11, 20)),true);
 				
+				----------- breaking preconditions ----------
 				
+				-- duplicar utilizadores
+				--app.addUserToApp(user);
+				--app.addUserToApp(user);
+				
+				-- eliminar utilizador não registado
+				--app.rmvUserToApp(user);
+				
+				-- duplicar shows
+				--app.addShowToApp(show);
+				--app.addShowToApp(show);
+				
+				-- eliminar show não registado
+				--app.rmvShowToApp(show);
 				
 				
 				return;

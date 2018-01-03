@@ -39,6 +39,16 @@ operations
 				user.removeLookFromFavoriteLooks(model_look);
 				assertEqual(user.getFavoriteLooks(),{});
 				
+				----------- breaking preconditions ----------
+				
+				-- não se pode duplicar looks
+				--user.addLookToFavoriteLooks(model_look);
+				--user.addLookToFavoriteLooks(model_look);
+				
+				-- não se pode remover looks que não estejam guardados
+				--user.removeLookFromFavoriteLooks(model_look);
+				
+				
 				return;
 			);
 			

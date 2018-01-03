@@ -291,7 +291,8 @@ functions
 -- TODO Define functiones here
 			
 			-- Retorna o numero de dias do mes num dado ano
-			public static DaysOfMonth(month,year : nat1) r : nat1 == (
+			public static DaysOfMonth: nat1 * nat1 -> nat1
+			DaysOfMonth(month,year)== (
 				if month = 1 or month = 3 or month = 5 or month = 7 or month = 8 or month = 10 or month = 12 then
 					31
 				else if month = 2 and ((year mod 4 = 0 and year mod 100 <> 0) or year mod 400 = 0) then
@@ -303,7 +304,8 @@ functions
 			);
 			
 			-- Converte horas para minutos
-			public static HoursToMinutes(hour : nat, minutes : nat) r : nat == (
+			public static HoursToMinutes: nat * nat -> nat
+			HoursToMinutes(hour, minutes) == (
 				hour * 60 + minutes
 			);
 
