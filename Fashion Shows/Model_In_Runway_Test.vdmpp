@@ -23,11 +23,17 @@ operations
 				assertEqual(model1_rw.getPhoto(),"picture.png");
 				model1_rw.removePhoto();
 				
-				-- não pode devolver foto se não existir - pre-condição
-				-- assertEqual(model1_rw.getPhoto(),nil);
-				
+				--sets
 				model1_rw.setDate(mk_Fashion_Show`Date(2017, 11,10, 15, 00));
 				assertEqual(model1_rw.getDate(),mk_Fashion_Show`Date(2017, 11,10, 15, 00));
+				
+				----------- breaking preconditions ----------
+				
+				-- não pode devolver foto se não existir - pre-condição
+				--assertEqual(model1_rw.getPhoto(),nil);
+				
+				-- não pode remover foto se ela não existir
+				-- model1_rw.removePhoto();
 				
 				return;
 			);

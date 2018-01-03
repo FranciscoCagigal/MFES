@@ -21,6 +21,11 @@ operations
 				assertEqual(model.getHeight(),1.78);
 				assertEqual(model.getWeight(),74.32);
 				
+				----------- breaking invariant ----------
+				-- não pode criar um modelo menor de idade
+				--model := new Model("Pedro Faria",15,<Masculino>,1.78,74.32);	
+				
+				
 				
 				return;
 			);

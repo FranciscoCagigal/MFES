@@ -18,7 +18,7 @@ operations
 				dcl designer2 : Fashion_Designer := new Fashion_Designer("Francisco Louça",64);
 				dcl designer3 : Fashion_Designer := new Fashion_Designer("Afonso Martins",58);
 				dcl designer4 : Fashion_Designer := new Fashion_Designer("Carlos Silva",62);
-				--dcl designer5 : Fashion_Designer := new Fashion_Designer("Mario Andrade",59);
+				dcl designer5 : Fashion_Designer := new Fashion_Designer("Mario Andrade",59);
 				dcl model1 : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
 				dcl model2 : Model := new Model("Sara Sampaio",24,<Feminino>,1.82,53.24);
 				dcl model3 : Model := new Model("Daniela Hanganu",26,<Feminino>,1.79,52.78);
@@ -57,6 +57,25 @@ operations
 				show.rmvDesignerToShow(designer2);
 				assertEqual(show.getDesigners(),{});
 				
+				-- não se pode pesquisar modelos de designers inexistentes
+				--assertEqual(show.getModelsOfDesigner(designer1),{});
+				--assertEqual(show.getModelsInRunwayOfDesigner(designer1),{});
+				
+				-- não se pode duplicar designers
+				--show.addDesignerToShow(designer1);
+				--show.addDesignerToShow(designer1);
+				
+				-- não se pode remover designer inexistentes
+				--show.rmvDesignerToShow(designer1);
+				
+				-- não se pode remover um modelo de um designer inexistente
+				--removeModelToShow(designer1,model1);
+				
+				-- não se pode remover um modelo inexistente de um designer
+				--show.addDesignerToShow(designer1);
+				--show.removeModelToShow(designer1,model1);
+				
+				
 				-- program
 				show.addDesignerToProgramShow(data1,designer1);
 				assertEqual(show.getProgramShow(),{data1|->designer1});
@@ -85,12 +104,22 @@ operations
 				show.removeModelToShow(designer1,model2);
 				assertEqual(show.getModelsOfDesigner(designer1),[model1,model3]);
 				
+				--não se pode duplicar modelos num designer
+				--show.addModelToShow(designer1,model1);
+				
+				--não se pode inserir modelos num designer que não exista
+				--show.addModelToShow(designer5,model1);
+				
+				--não se pode inserir um modelo a um designer que não conste no programa
+				--show.removeDesignerFromProgramShow(data1);
+				--show.addModelToShow(designer1,model4);
+				
 				-- remove designers of program
 				show.removeDesignerFromProgramShow(data2);
 				assertEqual(show.getProgramShow(),{data1|->designer1});
 				assertEqual(card dom show.getProgramShow(),1);
 				show.removeDesignerFromProgramShow(data1);
-				assertEqual(show.getProgramShow(),{|->});
+				assertEqual(show.getProgramShow(),{|->});				
 				
 				-- workshops
 				assertEqual(show.getWorkShops(),{});
@@ -107,6 +136,13 @@ operations
 				assertEqual(show.getWorkShops(),{workshop2});
 				show.rmvWorkShopToShow(workshop2);
 				assertEqual(show.getWorkShops(),{});
+				
+				--não se pode duplicar workshops
+				--show.addWorkShopToShow(workshop);
+				--show.addWorkShopToShow(workshop);
+				
+				-- não se pode remover workshops inexistentes
+				--show.rmvWorkShopToShow(workshop);
 				
 				-- program
 				show.addDesignerToProgramShow(data1,designer1);
@@ -165,6 +201,10 @@ operations
 				--invalid entry (try to break pre-condition by removing a date that not exists on program)
 				--show.removeDesignerFromProgramShow(data5);
 				
+				-- não se pode retornar designer de uma data não inserida
+				--assertEqual(show.getDesignerByDate(data5),{});
+				
+				
 				show.removeDesignerFromProgramShow(data4);
 				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3});
 				assertEqual(card dom show.getProgramShow(),3);
@@ -198,6 +238,14 @@ operations
 				show.rmvCritic(reviewer2);
 				assertEqual(show.getCritics(),{|->});
 				assertEqual(show.getAvgReview(),0);
+				
+				--um reviewer não pode fazer mais do que 1 crítica
+				--show.addCritic(reviewer, critic);
+				--show.addCritic(reviewer, critic);
+				
+				--não se pode remover uma crítica de um reviewer inexistente
+				--show.rmvCritic(reviewer);
+				
 				
 				--test functions
 				assertEqual(show.DaysOfMonth(1,2000),31);

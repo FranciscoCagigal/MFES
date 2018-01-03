@@ -35,6 +35,20 @@ operations
 				workshop.rmvUserToWorkshop(user2);
 				assertEqual(workshop.getUsers(),{});
 				
+				----------- breaking preconditions ----------
+				
+				-- não se pode adicionar utilizadores que já estejam adicionados
+				--workshop.addUserToWorkshop(user1);
+				--workshop.addUserToWorkshop(user1);
+				
+				-- não se pode adicionar utilizadores que ultrapassem a lotação do workshop
+				--workshop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 1, "João Botões Correia", "A7");
+				--workshop.addUserToWorkshop(user1);
+				--workshop.addUserToWorkshop(user2);
+				
+				-- não se pode remover utilizadores que não estejam adicionados
+				-- workshop.rmvUserToWorkshop(user1);
+				
 				return;
 			);
 			
