@@ -113,7 +113,8 @@ functions
 -- TODO Define functiones here
 
 			-- Compara 2 datas
-			public static compareDates(date1,date2 : Fashion_Show`Date) r : bool == (
+			public static compareDates: Fashion_Show`Date * Fashion_Show`Date -> bool
+			compareDates(date1,date2) == (
 				if date1.year < date2.year then
 					true
 				else if date1.year > date2.year then
