@@ -25,8 +25,8 @@ operations
 				dcl model4 : Model := new Model("Dariia",23,<Feminino>,1.85,56.91);
 				dcl workshop : WorkShop := new WorkShop("Como costurar um botão?", mk_Fashion_Show`Date(2017, 12, 31, 20, 00), mk_Fashion_Show`Date(2017, 12, 31, 21, 00), 20, "João Botões Correia", "A7");
 				dcl workshop2 : WorkShop := new WorkShop("Como se maquilhar?", mk_Fashion_Show`Date(2017, 12, 31, 19, 00), mk_Fashion_Show`Date(2017, 12, 31, 20, 00), 20, "João Botões Correia", "A9");
-				dcl user1 : Regular_User := new Regular_User("Diolinda",<Feminino>, "diolinda@gmail.com", "password_diolinda",true);
-				dcl user2: Regular_User := new Regular_User("Diofeia",<Feminino>, "diofeia@gmail.com", "password_diofeia",false);
+				dcl user1 : Regular_User := new Regular_User("Diolinda",<Feminino>, "diolinda@gmail.com", "password_diolinda",true,false);
+				dcl user2: Regular_User := new Regular_User("Diofeia",<Feminino>, "diofeia@gmail.com", "password_diofeia",false,true);
 				dcl reviewer: Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>,"anabacalhau@gmail.com","password_anabacalhau");
 				dcl reviewer2: Reviewer := new Reviewer("Ana Moura",45,<Feminino>,"anamoura@gmail.com","password_anamoura");
 				dcl data1 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 10, 59);

@@ -12,9 +12,8 @@ operations
 			TestUser() ==
 			(
 				-- constructor
-				dcl user : Regular_User := new Regular_User("Diolinda", <Feminino>, "diolinda@gmail.com", "password_diolinda", true);
-				dcl user2 : Regular_User := new Regular_User("Diofeia", <Feminino>, "diofeia@gmail.com", "password_diofeia", false);
-				dcl admin : Admin := new Admin("Diomeh", <Feminino>, "diomeh@gmail.com", "password_diomeh");
+				dcl user : Regular_User := new Regular_User("Diolinda", <Feminino>, "diolinda@gmail.com", "password_diolinda", true,false);
+				dcl user2 : Regular_User := new Regular_User("Diofeia", <Feminino>, "diofeia@gmail.com", "password_diofeia", false,true);
 				dcl model : Model := new Model("Pedro Faria",67,<Masculino>,1.78,74.32);
 				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);		
 				dcl model_look : Model_Look := new Model_Look(model,show, mk_Fashion_Show`Date(2017, 12, 31, 23, 00),"vestido azul e cor de rosa");
@@ -22,18 +21,16 @@ operations
 				-- gets
 				assertEqual(user.getName(),"Diolinda");
 				assertEqual(user2.getName(),"Diofeia");
-				assertEqual(admin.getName(),"Diomeh");
 				assertEqual(user.getPremium(),true);
 				assertEqual(user2.getPremium(),false);
 				assertEqual(user.getGender(),<Feminino>);
 				assertEqual(user2.getGender(),<Feminino>);
-				assertEqual(admin.getGender(),<Feminino>);
 				assertEqual(user.getEmail(),"diolinda@gmail.com");
 				assertEqual(user2.getEmail(),"diofeia@gmail.com");
-				assertEqual(admin.getEmail(),"diomeh@gmail.com");
 				assertEqual(user.getPassword(),"password_diolinda");
 				assertEqual(user2.getPassword(),"password_diofeia");
-				assertEqual(admin.getPassword(),"password_diomeh");
+				assertEqual(user.isAdmin(),false);
+				assertEqual(user2.isAdmin(),true);
 				
 				-- looks
 				assertEqual(user.getFavoriteLooks(),{});

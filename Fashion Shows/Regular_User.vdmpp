@@ -9,20 +9,29 @@ instance variables
 -- TODO Define instance variables here
 		private favorite_looks : Looks := {};
 		private premium_user : bool := false;
+		private admin : bool := false;
 			
 operations
 -- TODO Define operations here
 
 		--Construtor
-		public Regular_User: String * Gender * String * String * bool ==> Regular_User
-		Regular_User(name1, gender1, email1, password1, premium_user1) == (
+		public Regular_User: String * Gender * String * String * bool * bool ==> Regular_User
+		Regular_User(name1, gender1, email1, password1, premium_user1 ,admin1) == (
 			name := name1;
 			gender := gender1;
 			email := email1;
 			password := password1;
 			premium_user := premium_user1;
+			admin := admin1;
 			return self;
 		);
+		
+		--Retorna se é um administrador ou nao
+		public pure isAdmin : () ==> bool
+		isAdmin() ==
+		(
+			return admin;
+		); 
 		
 		--Retorna se é um user premium ou nao
 		public pure getPremium : () ==> bool
