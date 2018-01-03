@@ -15,6 +15,8 @@ operations
 				dcl app : App := new App();
 				dcl user : Regular_User := new Regular_User("Diolinda",<Feminino>,"diolinda@gmail.com","password_diolinda",false);
 				dcl show : Fashion_Show := new Fashion_Show("Porto","Primavera",2017, 12, 31, 23, 59);
+				dcl show2 : Fashion_Show := new Fashion_Show("Porto","Outono",2018, 12, 31, 23, 59);
+				dcl show3 : Fashion_Show := new Fashion_Show("Porto","Outono",2018, 10, 31, 23, 59);
 				
 				-- users
 				assertEqual(app.getUsers(),{});
@@ -29,6 +31,34 @@ operations
 				assertEqual(app.getShows(),{show});
 				app.rmvShowToApp(show);
 				assertEqual(app.getShows(),{});
+				
+				-- filters
+				app.addShowToApp(show);
+				app.addShowToApp(show2);
+				app.addShowToApp(show3);
+				assertEqual(app.getShowsByTheme("Primavera"),{show});
+				assertEqual(app.getShowsByTheme("Outono"),{show3,show2});
+				assertEqual(app.getShowsByDate(),[show,show3,show2]);
+				app.rmvShowToApp(show);
+				app.rmvShowToApp(show2);
+				app.rmvShowToApp(show3);
+				assertEqual(app.getShowsByTheme("Outono"),{});
+				assertEqual(app.getShowsByDate(),[]);
+				
+				--functions compare date
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2018, 12, 31, 10, 30),mk_Fashion_Show`Date(2017, 12, 31, 10, 30)),false);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 10, 30),mk_Fashion_Show`Date(2018, 12, 31, 10, 30)),true);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 10, 30),mk_Fashion_Show`Date(2017, 11, 30, 10, 30)),false);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 11, 30, 10, 30),mk_Fashion_Show`Date(2017, 12, 31, 10, 30)),true);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 10, 30),mk_Fashion_Show`Date(2017, 12, 30, 10, 30)),false);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 30, 10, 30),mk_Fashion_Show`Date(2017, 12, 31, 10, 30)),true);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 11, 30),mk_Fashion_Show`Date(2017, 12, 31, 10, 30)),false);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 10, 30),mk_Fashion_Show`Date(2017, 12, 31, 11, 30)),true);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 11, 20),mk_Fashion_Show`Date(2017, 12, 31, 11, 19)),false);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 11, 19),mk_Fashion_Show`Date(2017, 12, 31, 11, 20)),true);
+				assertEqual(app.compareDates(mk_Fashion_Show`Date(2017, 12, 31, 11, 20),mk_Fashion_Show`Date(2017, 12, 31, 11, 20)),true);
+				
+				
 				
 				
 				return;

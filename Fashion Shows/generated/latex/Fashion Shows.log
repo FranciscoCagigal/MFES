@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.12.29)  2 JAN 2018 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.12.29)  3 JAN 2018 06:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -204,14 +204,7 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@tables=\count108
 \c@LT@chunks=\count109
 \LT@p@ftn=\toks16
-) (./Fashion Shows.aux
-
-LaTeX Warning: Label `TestDesigner:11' multiply defined.
-
-
-LaTeX Warning: Label `main:test:25' multiply defined.
-
-)
+) (./Fashion Shows.aux)
 \openout1 = `"Fashion Shows.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
@@ -311,97 +304,82 @@ Missing character: There is no ã in font pcrro7t!
 Missing character: There is no à in font pcrro7t!
 Missing character: There is no ç in font pcrro7t!
 Missing character: There is no ã in font pcrro7t!
-
-Underfull \vbox (badness 10000) detected at line 130
+ [3]
+Underfull \vbox (badness 10000) detected at line 205
  []
 
-) (./specification/App_Test.vdmpp.tex [3]
-Underfull \vbox (badness 10000) detected at line 71
+) (./specification/App_Test.vdmpp.tex [4] [5]
+Underfull \vbox (badness 10000) detected at line 101
  []
 
-) (./specification/Designer_Test.vdmpp.tex [4]
+) (./specification/Designer_Test.vdmpp.tex [6]
 Underfull \vbox (badness 10000) detected at line 59
  []
 
-) (./specification/Fashion_Designer.vdmpp.tex [5]
+) (./specification/Fashion_Designer.vdmpp.tex [7]
 Underfull \vbox (badness 10000) detected at line 69
  []
 
-) (./specification/Fashion_Show.vdmpp.tex [6] [7] [8] [9]
-Missing character: There is no í in font pcrro7t!
-Missing character: There is no í in font pcrro7t!
-Missing character: There is no é in font pcrro7t!
-Missing character: There is no í in font pcrro7t!
-Missing character: There is no ú in font pcrro7t!
-Missing character: There is no ê in font pcrro7t!
- [10]
-Underfull \vbox (badness 10000) detected at line 383
+) (./specification/Fashion_Show.vdmpp.tex [8] [9] [10] [11] [12]
+Underfull \vbox (badness 10000) detected at line 442
  []
 
-) (./specification/Main.vdmpp.tex [11]
+[13]) (./specification/Main.vdmpp.tex [14]
 Underfull \vbox (badness 10000) detected at line 56
  []
 
-) (./specification/Model.vdmpp.tex [12] [13]
+) (./specification/Model.vdmpp.tex [15]
 Underfull \vbox (badness 10000) detected at line 116
  []
 
-) (./specification/Model_In_Runway.vdmpp.tex [14]
+) (./specification/Model_In_Runway.vdmpp.tex [16] [17]
 Underfull \vbox (badness 10000) detected at line 123
  []
 
-) (./specification/Model_In_Runway_Test.vdmpp.tex [15]
+) (./specification/Model_In_Runway_Test.vdmpp.tex
 Missing character: There is no ã in font pcrro7t!
 Missing character: There is no ã in font pcrro7t!
 Missing character: There is no ç in font pcrro7t!
 Missing character: There is no ã in font pcrro7t!
-
-Underfull \vbox (badness 10000) detected at line 74
+ [18]
+Underfull \vbox (badness 10000) detected at line 69
  []
 
-) (./specification/Model_Look.vdmpp.tex [16] [17]
+) (./specification/Model_Look.vdmpp.tex [19]
 Underfull \vbox (badness 10000) detected at line 96
  []
 
-) (./specification/Model_Look_Test.vdmpp.tex
+) (./specification/Model_Look_Test.vdmpp.tex [20]
 Underfull \vbox (badness 10000) detected at line 63
  []
 
-[18]) (./specification/Model_Test.vdmpp.tex
+) (./specification/Model_Test.vdmpp.tex [21]
 Underfull \vbox (badness 10000) detected at line 62
  []
 
-) (./specification/MyTestCase.vdmpp.tex [19]
-LaTeX Font Info:    Try loading font information for OMS+pcr on input line 34.
-
-(c:/texlive/2017/texmf-dist/tex/latex/psnfss/omspcr.fd
-File: omspcr.fd 
-)
-LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
-
+) (./specification/MyTestCase.vdmpp.tex [22]
 Underfull \vbox (badness 10000) detected at line 53
  []
 
-) (./specification/Regular_User.vdmpp.tex [20]
+) (./specification/Regular_User.vdmpp.tex
 Missing character: There is no é in font pcrro7t!
-
+ [23]
 Underfull \vbox (badness 10000) detected at line 100
  []
 
-[21]) (./specification/Regular_User_Test.vdmpp.tex [22]
+) (./specification/Regular_User_Test.vdmpp.tex [24]
 Underfull \vbox (badness 10000) detected at line 77
  []
 
-) (./specification/Reviewer.vdmpp.tex
+) (./specification/Reviewer.vdmpp.tex [25]
 Underfull \vbox (badness 10000) detected at line 58
  []
 
-[23]) (./specification/Reviewer_Test.vdmpp.tex
+) (./specification/Reviewer_Test.vdmpp.tex [26]
 Underfull \vbox (badness 10000) detected at line 61
  []
 
-) (./specification/Show_Test.vdmpp.tex [24]
+) (./specification/Show_Test.vdmpp.tex [27]
 Missing character: There is no ç in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
@@ -409,70 +387,65 @@ Missing character: There is no õ in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no õ in font pcrr7t!
 Missing character: There is no é in font pcrr7t!
- [25] [26] [27]
-Underfull \vbox (badness 10000) detected at line 228
+ [28] [29] [30]
+Underfull \vbox (badness 10000) detected at line 245
  []
 
-) (./specification/User.vdmpp.tex [28]
+) (./specification/User.vdmpp.tex [31]
 Underfull \vbox (badness 10000) detected at line 81
  []
 
-) (./specification/WorkShop.vdmpp.tex [29]
+) (./specification/WorkShop.vdmpp.tex [32]
 Missing character: There is no í in font pcrro7t!
 Missing character: There is no ç in font pcrro7t!
 Missing character: There is no ã in font pcrro7t!
- [30]
+ [33]
 Missing character: There is no à in font pcrro7t!
 Missing character: There is no à in font pcrro7t!
 
 Underfull \vbox (badness 10000) detected at line 173
  []
 
-[31]) (./specification/WorkShop_Test.vdmpp.tex
+[34]) (./specification/WorkShop_Test.vdmpp.tex
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no õ in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no ã in font pcrr7t!
 Missing character: There is no õ in font pcrr7t!
- [32]
+ [35]
 Underfull \vbox (badness 10000) detected at line 75
  []
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
- [33]
+ [36]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
  (./Fashion Shows.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 55.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 55.
 Package rerunfilecheck Info: File `"Fashion Shows".out' has not changed.
 (rerunfilecheck)             Checksum: 4332C6E2BE5DB79ABF0631CEAC3AFCD0;1041.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 55.
  ) 
 Here is how much of TeX's memory you used:
- 8456 strings out of 492985
- 125670 string characters out of 6136283
- 509742 words of memory out of 5000000
- 10229 multiletter control sequences out of 15000+600000
+ 8627 strings out of 492985
+ 128398 string characters out of 6136283
+ 517987 words of memory out of 5000000
+ 10238 multiletter control sequences out of 15000+600000
  17044 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,6n,48p,283b,1936s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,6n,48p,326b,1934s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2017/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2017/texmf-dist/fon
-ts/type1/public/amsfonts/latxfont/lcircle1.pfb><c:/texlive/2017/texmf-dist/font
-s/type1/urw/courier/ucrb8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/cour
-ier/ucrr8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb>
-<c:/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2017/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "Fashion Shows.pdf" (33 pages, 205980 bytes).
+f-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb><c:/texlive/2017/texmf
+-dist/fonts/type1/urw/courier/ucrb8a.pfb><c:/texlive/2017/texmf-dist/fonts/type
+1/urw/courier/ucrr8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/courier/uc
+rro8a.pfb><c:/texlive/2017/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texl
+ive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on "Fashion Shows.pdf" (36 pages, 211275 bytes).
 PDF statistics:
- 2370 PDF objects out of 2487 (max. 8388607)
- 2304 compressed objects within 24 object streams
- 1686 named destinations out of 1728 (max. 500000)
+ 2581 PDF objects out of 2984 (max. 8388607)
+ 2511 compressed objects within 26 object streams
+ 1851 named destinations out of 2073 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -29,8 +29,8 @@ operations
 				dcl user2: Regular_User := new Regular_User("Diofeia",<Feminino>, "diofeia@gmail.com", "password_diofeia",false);
 				dcl reviewer: Reviewer := new Reviewer("Ana Bacalhau",39,<Feminino>,"anabacalhau@gmail.com","password_anabacalhau");
 				dcl reviewer2: Reviewer := new Reviewer("Ana Moura",45,<Feminino>,"anamoura@gmail.com","password_anamoura");
-				dcl data1 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 10, 30);
-				dcl data2 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 11, 00);
+				dcl data1 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 10, 59);
+				dcl data2 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 11, 59);
 				dcl data3 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 12, 30);
 				dcl data4 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 14, 00);
 				dcl data5 : Fashion_Show`Date := mk_Fashion_Show`Date(2017, 12, 31, 15, 30);
@@ -71,10 +71,15 @@ operations
 				assertEqual(show.getModelsOfDesigner(designer1),[]);
 				assertEqual(show.getModelsOfDesigner(designer2),[]);
 				assertEqual(show.getModels(),{designer1|->[],designer2|->[]});
+				assertEqual(show.getModelsInRunwayOfDesigner(designer1),[]);
 				show.addModelToShow(designer1,model1);
 				show.addModelToShow(designer1,model2);
 				show.addModelToShow(designer1,model3);
 				show.addModelToShow(designer2,model4);
+				assertEqual(show.getModelsInRunwayOfDesigner(designer1)(1).getModel(),model1);
+				assertEqual(show.getModelsInRunwayOfDesigner(designer1)(2).getModel(),model2);
+				assertEqual(show.getModelsInRunwayOfDesigner(designer1)(3).getModel(),model3);
+				assertEqual(show.getModelsInRunwayOfDesigner(designer2)(1).getModel(),model4);
 				assertEqual(show.getModelsOfDesigner(designer1),[model1,model2,model3]);
 				assertEqual(show.getModelsOfDesigner(designer2),[model4]);
 				show.removeModelToShow(designer1,model2);
@@ -116,6 +121,7 @@ operations
 				show.addDesignerToProgramShow(data4,designer4);
 				assertEqual(show.getProgramShow(),{data1|->designer1,data2|->designer2,data3|->designer3,data4|->designer4});
 				assertEqual(card dom show.getProgramShow(),4);
+				assertEqual(show.checkProgramDisponibility(mk_Fashion_Show`Date(2017, 12, 31, 13, 59)),false);
 				
 				--invalid entry (try to break pre-condition by adding another event with already existing same date)
 				--show.addDesignerToProgramShow(data1,designer2);

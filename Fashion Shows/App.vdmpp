@@ -4,6 +4,7 @@ types
 
 			public Users = set of Regular_User;
 			public Shows = set of Fashion_Show;
+			public Shows_Seq = seq of Fashion_Show;
 			
 values
 -- TODO Define values here
@@ -75,9 +76,68 @@ operations
 			)
 			pre Fashion_Show in set shows
 			post Fashion_Show not in set shows;
+			
+			--Procura shows por tema
+			public getShowsByTheme : (Fashion_Show`String) ==> Shows
+			getShowsByTheme(theme) ==
+			(
+				dcl return_value : Shows := {};
+				for all show in set shows do
+					if show.getTheme() = theme then
+						return_value := return_value union {show};
+				return return_value;
+			);
+			
+			--Ordenar shows por data
+			public getShowsByDate : () ==> Shows_Seq
+			getShowsByDate() ==
+			(
+				dcl return_value : Shows_Seq := [];
+				dcl aux_show : [Fashion_Show] := nil;
+				
+				
+				for all show in set shows do
+					(
+					for all show2 in set shows do
+						(
+							if((aux_show=nil or compareDates(show2.getDate(),aux_show.getDate())) and show2 not in set elems return_value ) then
+								aux_show:=show2;
+						);
+						return_value := return_value ^ [aux_show];
+						aux_show:=nil;
+						);
+				return return_value;
+			);
 
 functions
 -- TODO Define functiones here
+
+			-- Compara 2 datas
+			public static compareDates(date1,date2 : Fashion_Show`Date) r : bool == (
+				if date1.year < date2.year then
+					true
+				else if date1.year > date2.year then
+				 false
+				else if date1.month < date2.month then
+					true
+				else if date1.month > date2.month then
+					false
+				else if date1.day < date2.day then
+					true
+				else if date1.day > date2.day then
+					false
+				else if date1.hour < date2.hour then
+					true
+				else if date1.hour > date2.hour then
+					false
+				else if date1.minute < date2.minute then
+					true
+				else if date1.minute > date2.minute then
+					false
+				else
+					true
+			);
+
 traces
 -- TODO Define Combinatorial Test Traces here
 end App
