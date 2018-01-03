@@ -237,7 +237,7 @@ operations
 			(
 				WorkShop.addUserToWorkshop(User);
 			)
-			pre card WorkShop.getUsers() < WorkShop.getLotation();
+			pre card WorkShop.getUsers() < WorkShop.getLotation() and WorkShop in set workshops;
 			
 			-- Editor adiciona a sua critica ao show
 			public addCritic : Reviewer * Critic ==> ()
